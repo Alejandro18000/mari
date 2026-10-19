@@ -1,0 +1,19 @@
+{
+  "name": "libro-mari",
+  "version": "1.0.0",
+  "description": "Un libro artesanal e interactivo para Mari · 4 de Agosto",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "canvas-confetti": "^1.9.4",
+    "page-flip": "^2.0.7"
+  },
+  "devDependencies": {
+    "vite": "^8.3.1"
+  }
+}

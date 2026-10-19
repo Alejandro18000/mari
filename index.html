@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Para Mari · 4 de Agosto</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚛️</text></svg>">
+  <meta name="description" content="Un tomo artesanal, alquímico y cósmico para Mari · 4 de Agosto">
+  <meta name="theme-color" content="#0d1b2a">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+
+  <!-- Lienzo de polvo cósmico y órbitas atómicas -->
+  <canvas id="petals-canvas"></canvas>
+
+  <div class="app-wrapper">
+    <main class="book-stage">
+      <div id="flipbook"></div>
+    </main>
+
+    <footer class="bottom-control-bar">
+      <button class="nav-btn-action" id="btn-prev-page" title="Página Anterior">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span class="nav-btn-text">Ant.</span>
+      </button>
+
+      <button class="nav-btn-action" id="btn-open-toc" title="Índice de Capítulos">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </svg>
+        <span class="nav-btn-text">Índice</span>
+      </button>
+
+      <div class="page-indicator-badge" id="page-indicator" title="Toca para abrir el índice de capítulos">
+        Portada
+      </div>
+
+      <button class="nav-btn-action" id="btn-toggle-music" title="Música / Ambiente">
+        <span class="music-play-icon">▶</span>
+        <span class="nav-btn-text">Música</span>
+      </button>
+
+      <button class="nav-btn-action nav-btn-primary" id="btn-next-page" title="Página Siguiente">
+        <span class="nav-btn-text">Sig.</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <button class="nav-btn-icon" id="btn-toggle-fullscreen" title="Pantalla Completa">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
