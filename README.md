@@ -8,10 +8,6 @@ Combina la encuadernación en **cuero azul noche repujado en oro**, motivos astr
 ## ✨ Características Especiales
 
 * 📖 **Animación Física de Libro 3D:** Hojas con curvatura, texturas de pergamino y sombras realistas mediante `PageFlip`.
-* 🔐 **Privacidad Estricta & PIN de Acceso:** 
-  - La persona debe ingresar el código personal `0408` (4 de Agosto) para abrir las páginas.
-  - Soporta enlace de desbloqueo directo mediante token: `?key=0408`.
-  - Etiquetas `noindex, nofollow` para evitar indexación en motores de búsqueda.
 * 🌌 **Fondo Animado de Polvo Cósmico:** Canvas dinámico con estrellas titilantes y órbitas atómicas flotantes.
 * 🧪 **Carta de Cumpleaños Recreada desde Cero:**
   - Letra capitular iluminada `H` con electrones y órbitas atómicas animadas en SVG.
@@ -20,17 +16,22 @@ Combina la encuadernación en **cuero azul noche repujado en oro**, motivos astr
   - Botón interactivo para explorar el manuscrito original en Lightbox HD.
 * 🎄 **Capítulo II · Navidad:** Interfaz festiva lista con decoraciones de nieve cristalina y marco para el futuro mensaje navideño.
 * 🎆 **Capítulo III · Fin de Año:** Interfaz diseñada con reloj de medianoche a las 11:59 y copas de brindis.
-* 📡 **Telemetría Aislada:** Registra lectura en Firebase bajo `sessions_mari`.
 
 ---
 
-## 🚀 Ejecución
+## 🚀 Despliegue en Línea (GitHub Pages)
+
+🔗 **Enlace en vivo:** [https://alejandro18000.github.io/mari/](https://alejandro18000.github.io/mari/)
+
+---
+
+## 💻 Ejecución Local
 
 ```bash
-# Servidor de desarrollo
+# Iniciar servidor de desarrollo
 npm run dev
 
-# Compilar producción
+# Compilar para producción
 npm run build
 ```
 O simplemente ejecuta el archivo `iniciar_libro_mari.bat`.

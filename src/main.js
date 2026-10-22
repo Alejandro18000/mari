@@ -12,19 +12,17 @@ import { AudioController } from './components/AudioController.js';
 import { BookRenderer } from './components/BookRenderer.js';
 import { Lightbox } from './components/Lightbox.js';
 import { ChaptersModal } from './components/ChaptersModal.js';
-import { telemetry } from './services/TelemetryService.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Inicializar efecto cósmico de fondo
   const cosmicEffect = new CosmicAlchemyEffect('petals-canvas');
 
-  // 2. Inicializar libro directamente (sin códigos de acceso)
+  // 2. Inicializar libro directamente
   initBook();
 
   function initBook() {
     const audioController = new AudioController(bookMetadata.songDetails);
     const lightbox = new Lightbox();
-    lightbox.onOpen(({ caption, src }) => telemetry.onPhotoZoom(caption));
 
     // Renderizar libro
     const renderer = new BookRenderer('flipbook');
@@ -58,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isFlipping = false;
     let flipLockUntil = 0;
+    let lastTouchTime = 0;
 
     pageFlip.on('changeState', (e) => {
       isFlipping = (e.data === 'flipping');
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = pageFlip.getCurrentPageIndex();
       if (current >= totalPages - 1) return;
       isFlipping = true;
-      flipLockUntil = Date.now() + 700;
+      flipLockUntil = Date.now() + (isMobile ? 650 : 800);
       pageFlip.flipNext();
     };
 
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = pageFlip.getCurrentPageIndex();
       if (current <= 0) return;
       isFlipping = true;
-      flipLockUntil = Date.now() + 700;
+      flipLockUntil = Date.now() + (isMobile ? 650 : 800);
       pageFlip.flipPrev();
     };
 
@@ -93,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const current = pageFlip.getCurrentPageIndex();
       if (target === current) return;
       isFlipping = true;
-      flipLockUntil = Date.now() + 750;
+      flipLockUntil = Date.now() + (isMobile ? 700 : 850);
       pageFlip.flip(target);
     };
 
-    // Navegación táctil (Swipe)
+    // Gestos táctiles
     let touchStartX = 0;
     let touchStartY = 0;
     let touchStartTime = 0;
@@ -112,37 +111,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bookEl.addEventListener('touchend', (e) => {
       if (e.changedTouches && e.changedTouches.length === 1) {
-        const diffX = e.changedTouches[0].clientX - touchStartX;
-        const diffY = e.changedTouches[0].clientY - touchStartY;
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
         const duration = Date.now() - touchStartTime;
 
         if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY) * 1.3 && duration < 600) {
+          lastTouchTime = Date.now();
           if (diffX < 0) safeFlipNext();
           else safeFlipPrev();
           return;
         }
 
         if (Math.abs(diffX) < 15 && Math.abs(diffY) < 15 && duration < 350) {
-          const isInteractive = e.target.closest('button, a, .clean-photo-frame, .chapter-item-btn, input');
-          if (isInteractive) return;
+          const target = e.target;
+          if (target.closest('button, a, .clean-photo-frame, .chapter-item-btn, input, select')) return;
 
+          lastTouchTime = Date.now();
           if (pageFlip.getCurrentPageIndex() === 0) {
             safeFlipTo(1);
             return;
           }
 
           const rect = bookEl.getBoundingClientRect();
-          const tapX = e.changedTouches[0].clientX - rect.left;
+          const tapX = touchEndX - rect.left;
           if (tapX > rect.width * 0.55) safeFlipNext();
           else if (tapX < rect.width * 0.45) safeFlipPrev();
         }
       }
     }, { passive: true });
 
-    // Clic en escritorio
     bookEl.addEventListener('click', (e) => {
-      const isInteractive = e.target.closest('button, a, .clean-photo-frame, .chapter-item-btn, input');
-      if (isInteractive) return;
+      if (Date.now() - lastTouchTime < 500) return;
+      if (e.target.closest('button, a, .clean-photo-frame, .chapter-item-btn, input, select')) return;
 
       if (pageFlip.getCurrentPageIndex() === 0) {
         safeFlipTo(1);
@@ -155,20 +157,22 @@ document.addEventListener('DOMContentLoaded', () => {
       else if (clickX < rect.width * 0.45) safeFlipPrev();
     });
 
-    window.addEventListener('resize', () => pageFlip && pageFlip.update());
+    window.addEventListener('resize', () => { if (pageFlip) pageFlip.update(); });
 
-    // Modal de capítulos
-    const chaptersModal = new ChaptersModal((target) => safeFlipTo(target));
-
-    // Elementos de la barra inferior
+    // Componentes de control
+    const chaptersModal = new ChaptersModal((targetPage) => safeFlipTo(targetPage));
     const prevBtn = document.getElementById('btn-prev-page');
     const nextBtn = document.getElementById('btn-next-page');
     const pageIndicator = document.getElementById('page-indicator');
-    const openTocBtn = document.getElementById('btn-open-toc');
     const toggleMusicBtn = document.getElementById('btn-toggle-music');
+    const openTocBtn = document.getElementById('btn-open-toc');
     const fullscreenBtn = document.getElementById('btn-toggle-fullscreen');
+    const bookStageEl = document.querySelector('.book-stage');
 
     const updateNav = (pageIndex) => {
+      const isOpen = pageIndex > 0 && pageIndex < totalPages - 1;
+      if (bookStageEl) bookStageEl.classList.toggle('is-open', isOpen);
+
       if (pageIndicator) {
         if (pageIndex === 0) pageIndicator.textContent = "Portada";
         else if (pageIndex >= totalPages - 1) pageIndicator.textContent = "Contratapa";
@@ -186,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
       flipLockUntil = Date.now() + 150;
       audioController.playFlipSound();
       updateNav(pageIndex);
-      telemetry.onPageFlip(pageIndex, totalPages);
 
       if (pageIndex === 3) {
         confetti({
@@ -232,7 +235,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleMusicBtn) {
       toggleMusicBtn.addEventListener('click', () => {
         audioController.toggleMusic();
-        telemetry.onMusicPlay();
       });
     }
 
