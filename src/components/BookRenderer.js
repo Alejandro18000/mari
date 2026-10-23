@@ -1,6 +1,6 @@
 /**
- * BookRenderer.js - Libro Mari
- * Renderiza el tomo artesanal de lujo de Mari con temática alquímica, científica y cósmica.
+ * BookRenderer.js
+ * Genera el HTML editorial y artístico del libro interactivo.
  */
 
 import { bookMetadata, chapters, bookPages, asset } from '../chapters/chaptersData.js';
@@ -71,10 +71,10 @@ export class BookRenderer {
       <div class="cover-antique-bg mari-cover-bg back"></div>
       <div class="cover-medallion-content back">
         <div class="cover-gold-badge">
-          <div class="cover-gold-title" style="font-size: 1.85rem;">Para Mari</div>
+          <div class="cover-gold-title" style="font-size: 1.85rem;">${bookMetadata.title}</div>
           <div class="cover-gold-divider"></div>
-          <div class="cover-gold-subtitle">4 de Agosto</div>
-          <div class="cover-formula-motto">«Amor incondicional es nuestra fórmula»</div>
+          <div class="cover-gold-subtitle">${bookMetadata.subtitle}</div>
+          <div class="cover-formula-motto">${bookMetadata.dedication ? `«${bookMetadata.dedication}»` : ''}</div>
         </div>
       </div>
     `;
@@ -147,7 +147,7 @@ export class BookRenderer {
           ${itemsHtml}
         </div>
         <div class="toc-quote-footer">
-          «La ciencia explica el cosmos, pero la verdadera magia reside en la amistad que nunca se extingue.»
+          ${bookMetadata.dedication ? `«${bookMetadata.dedication}»` : ''}
         </div>
       </div>
     `;
@@ -247,7 +247,7 @@ export class BookRenderer {
           </div>
 
           <div class="art-lightbox-trigger-row">
-            <button class="btn-inspect-original clean-photo-frame" data-full-img="${data.originalArt}" data-caption="Manuscrito iluminado completo original para Mari">
+            <button class="btn-inspect-original clean-photo-frame" data-full-img="${data.originalArt}" data-caption="Manuscrito iluminado original">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>

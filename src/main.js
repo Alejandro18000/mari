@@ -1,6 +1,6 @@
 /**
- * main.js - Libro Mari
- * Orquestador principal del tomo para Mari · 4 de Agosto.
+ * main.js
+ * Orquestador principal del libro interactivo.
  */
 
 import './styles/book.css';
@@ -14,6 +14,10 @@ import { Lightbox } from './components/Lightbox.js';
 import { ChaptersModal } from './components/ChaptersModal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (bookMetadata.title) {
+    document.title = `${bookMetadata.title} · ${bookMetadata.subtitle}`;
+  }
+
   // 1. Inicializar efecto cósmico de fondo
   const cosmicEffect = new CosmicAlchemyEffect('petals-canvas');
 

@@ -1,7 +1,7 @@
 {
   "name": "libro-mari",
   "version": "1.0.0",
-  "description": "Un libro artesanal e interactivo para Mari · 4 de Agosto",
+  "description": "Interactive 3D Digital Book",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
