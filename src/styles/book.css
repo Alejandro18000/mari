@@ -1,16 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Italianno&family=Montserrat:wght@300;400;600&display=swap');
 
 :root {
-  --color-mari-blue: #0d1b2a;
-  --color-mari-navy: #1b263b;
-  --color-mari-gold: #d4af37;
-  --color-mari-gold-light: #f3e5ab;
-  --color-mari-gold-dark: #9a7b20;
-  --color-parchment: #fcf8f0;
-  --color-parchment-border: #e3d3b6;
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-script: 'Alex Brush', cursive;
+  --color-mari-blue: #0b1626;
+  --color-mari-navy: #162a45;
+  --color-mari-gold: #c5a059;
+  --color-mari-gold-bright: #dfbe65;
+  --color-mari-gold-dark: #8c6d23;
+  --color-parchment: #fbf7ee;
+  --color-parchment-shade: #f3ebd7;
+  --color-parchment-border: #d8c39d;
+  --color-ink-sepia: #2c1a0e;
+  --color-ink-muted: #5c4738;
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-script: 'Italianno', 'Great Vibes', cursive;
   --font-display: 'Cinzel Decorative', 'Cinzel', serif;
+  --font-roman: 'Cinzel', 'Cormorant Garamond', serif;
   --font-sans: 'Montserrat', sans-serif;
 }
 
@@ -25,8 +29,8 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: radial-gradient(circle at center, #14213d 0%, #080f18 100%);
-  color: #2b2b2b;
+  background: radial-gradient(circle at center, #162438 0%, #080f18 100%);
+  color: var(--color-ink-sepia);
   font-family: var(--font-serif);
   touch-action: pan-y;
 }
@@ -65,28 +69,28 @@ html, body {
 }
 
 #flipbook {
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.75), 0 10px 25px rgba(0,0,0,0.5);
   transition: transform 0.4s ease;
 }
 
-/* Páginas */
+/* Páginas en Papel Pergamino Renacentista */
 .page {
   background-color: var(--color-parchment);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 60%),
-    linear-gradient(to right, rgba(0,0,0,0.06) 0%, transparent 4%, transparent 96%, rgba(0,0,0,0.04) 100%);
+    radial-gradient(circle at 50% 50%, rgba(251, 247, 238, 0.95) 0%, rgba(243, 235, 215, 0.85) 100%),
+    linear-gradient(to right, rgba(0,0,0,0.08) 0%, transparent 4%, transparent 96%, rgba(0,0,0,0.05) 100%);
   overflow: hidden;
   position: relative;
 }
 
 .page-parchment-border {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
   border: 1.5px solid var(--color-parchment-border);
-  outline: 1px dashed rgba(212, 175, 55, 0.4);
+  outline: 1px solid rgba(197, 160, 89, 0.35);
   outline-offset: -5px;
   pointer-events: none;
   z-index: 2;
@@ -94,22 +98,22 @@ html, body {
 
 .page-inner-scroll {
   position: absolute;
-  top: 25px;
-  left: 25px;
-  right: 25px;
-  bottom: 35px;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 30px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 10px 5px;
+  padding: 5px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.4) transparent;
+  scrollbar-color: rgba(197, 160, 89, 0.4) transparent;
 }
 
 .page-inner-scroll::-webkit-scrollbar {
   width: 4px;
 }
 .page-inner-scroll::-webkit-scrollbar-thumb {
-  background: rgba(212,175,55,0.4);
+  background: rgba(197, 160, 89, 0.4);
   border-radius: 4px;
 }
 
@@ -122,15 +126,15 @@ html, body {
   font-size: 0.8rem;
   color: #8c7b64;
   letter-spacing: 2px;
-  font-family: var(--font-sans);
-  font-weight: 300;
+  font-family: var(--font-roman);
+  font-weight: 400;
 }
 
 /* ============================================================
-   PORTADA Y CONTRATAPA (CUERO AZUL NOCHE Y ORO)
+   PORTADA Y CONTRATAPA (CUERO AZUL PRUSIANO & ORO RENACENTISTA)
    ============================================================ */
 .theme-mari-cover {
-  background: linear-gradient(135deg, #0a1118 0%, #0d1b2a 40%, #1b263b 100%) !important;
+  background: linear-gradient(135deg, #070e17 0%, #0b1626 40%, #162a45 100%) !important;
 }
 
 .mari-cover-bg {
@@ -139,22 +143,22 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 4px solid #111a24;
-  box-shadow: inset 0 0 40px rgba(0,0,0,0.85);
+  border: 4px solid #070e17;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.9);
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.12) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(197, 160, 89, 0.12) 0%, transparent 70%),
     repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 2px, transparent 2px, transparent 6px);
 }
 
 .mari-cover-bg::after {
   content: '';
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
-  border: 2px solid rgba(212, 175, 55, 0.6);
-  outline: 1px solid rgba(212, 175, 55, 0.3);
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 2px solid rgba(197, 160, 89, 0.65);
+  outline: 1px dashed rgba(223, 190, 101, 0.35);
   outline-offset: -6px;
   pointer-events: none;
 }
@@ -169,7 +173,7 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
+  padding: 35px 20px;
   text-align: center;
   z-index: 3;
 }
@@ -188,60 +192,62 @@ html, body {
 }
 
 .cover-gold-badge {
-  background: rgba(10, 20, 35, 0.85);
+  background: rgba(8, 15, 24, 0.9);
   border: 1.5px solid var(--color-mari-gold);
-  border-radius: 8px;
-  padding: 30px 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(212, 175, 55, 0.2);
+  border-radius: 6px;
+  padding: 30px 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.7), inset 0 0 25px rgba(197, 160, 89, 0.2);
   max-width: 90%;
   margin-bottom: 25px;
 }
 
-.cover-constellation-icon {
-  font-size: 1.1rem;
-  color: var(--color-mari-gold);
+.cover-renaissance-fleuron {
+  font-size: 1.2rem;
+  color: var(--color-mari-gold-bright);
   letter-spacing: 6px;
-  display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .cover-gold-title {
   font-family: var(--font-display);
-  font-size: 2.3rem;
-  color: var(--color-mari-gold-light);
+  font-size: 2.2rem;
+  color: #fcf8ec;
   letter-spacing: 3px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 15px rgba(212, 175, 55, 0.4);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 15px rgba(197, 160, 89, 0.45);
 }
 
 .cover-gold-divider {
-  width: 60px;
+  width: 70px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--color-mari-gold), transparent);
-  margin: 12px auto;
+  margin: 14px auto;
 }
 
 .cover-gold-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-family: var(--font-roman);
+  font-size: 1rem;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #c9d6df;
-  font-weight: 400;
+  color: #dfbe65;
+  font-weight: 600;
 }
 
 .cover-gold-tagline {
-  font-family: var(--font-script);
-  font-size: 1.45rem;
-  color: var(--color-mari-gold);
-  margin-top: 8px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #c9d6df;
+  margin-top: 10px;
+  line-height: 1.4;
 }
 
 .cover-formula-motto {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.05rem;
-  color: var(--color-mari-gold-light);
-  margin-top: 15px;
+  color: #f3e5ab;
+  margin-top: 14px;
+  line-height: 1.45;
 }
 
 .btn-open-book {
@@ -249,136 +255,150 @@ html, body {
   align-items: center;
   gap: 10px;
   padding: 12px 28px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  border: 1px solid #ffd700;
-  border-radius: 30px;
-  color: #0d1b2a;
-  font-family: var(--font-sans);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
+  background: linear-gradient(135deg, #c5a059 0%, #8c6d23 100%);
+  border: 1px solid #dfbe65;
+  border-radius: 25px;
+  color: #0b1626;
+  font-family: var(--font-roman);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 15px rgba(197, 160, 89, 0.4);
+  transition: all 0.25s ease;
 }
 
 .btn-open-book:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
-  filter: brightness(1.1);
+  filter: brightness(1.12);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.6);
 }
 
 /* ============================================================
-   ÍNDICE (TOC)
+   FRONTISPICIO & ÍNDICE RENACENTISTA
    ============================================================ */
-.toc-container {
-  padding: 10px 15px;
+.renaissance-frontispiece {
+  padding: 15px 10px;
+}
+
+.woodcut-ornament-header {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.frontispiece-sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #5c4738;
+  text-align: center;
+  margin: 6px auto 14px auto;
+  max-width: 90%;
+  line-height: 1.45;
 }
 
 .editorial-header {
   text-align: center;
-  margin-bottom: 20px;
-}
-
-.editorial-ornament {
-  font-size: 1rem;
-  color: var(--color-mari-gold);
-  letter-spacing: 5px;
+  margin-bottom: 18px;
 }
 
 .editorial-title {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: #1b263b;
-  margin: 5px 0;
+  font-size: 1.55rem;
+  color: #0b1626;
   letter-spacing: 2px;
 }
 
 .editorial-divider {
-  width: 50px;
-  height: 2px;
-  background: #d4af37;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
   margin: 8px auto;
-}
-
-.toc-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .toc-item-row {
   display: flex;
   align-items: center;
-  background: none;
-  border: none;
-  cursor: pointer;
   width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  border-radius: 4px;
   text-align: left;
-  padding: 8px 10px;
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .toc-item-row:hover {
-  background: rgba(212, 175, 55, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #c5a059;
+  transform: translateX(3px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.2);
 }
 
 .toc-roman {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  color: var(--color-mari-gold-dark);
-  min-width: 65px;
+  font-family: var(--font-roman);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #8c6d23;
+  min-width: 80px;
 }
 
 .toc-info {
-  display: flex;
-  flex-direction: column;
+  flex-grow: 1;
 }
 
 .toc-title {
+  display: block;
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1b263b;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #162a45;
 }
 
 .toc-desc {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: #6b7280;
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: #6b5c4f;
 }
 
 .toc-dots {
   flex-grow: 1;
-  border-bottom: 1px dotted #c5b497;
+  border-bottom: 1px dotted #c5a059;
   margin: 0 10px;
+  height: 1px;
 }
 
 .toc-page-num {
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.85rem;
-  color: #8c7b64;
-  font-weight: 600;
+  color: #8c6d23;
+  font-weight: 700;
 }
 
 .toc-quote-footer {
-  margin-top: 30px;
+  margin-top: 25px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(197, 160, 89, 0.4);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.4);
   text-align: center;
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.95rem;
-  color: #6b5b45;
-  padding: 10px;
-  border-top: 1px solid #e3d3b6;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #4a382b;
 }
 
 /* ============================================================
-   PORTADILLA DE CAPÍTULO
+   PORTADILLAS DE CAPÍTULO (TRATADOS RENACENTISTAS)
    ============================================================ */
-.chapter-header-screen {
+.renaissance-header-screen {
+  padding: 30px 15px;
   text-align: center;
-  padding: 40px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -386,307 +406,527 @@ html, body {
   height: 100%;
 }
 
-.alchemy-symbol-badge {
+.renaissance-woodcut-vignette {
   margin-bottom: 15px;
-  animation: pulseGold 4s ease-in-out infinite alternate;
-}
-
-@keyframes pulseGold {
-  from { filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.3)); }
-  to { filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.7)); }
 }
 
 .editorial-roman {
-  font-family: var(--font-display);
+  font-family: var(--font-roman);
   font-size: 1rem;
   color: var(--color-mari-gold-dark);
   letter-spacing: 3px;
   margin-bottom: 5px;
+  font-weight: 700;
 }
 
 .chapter-main-title {
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  color: #0d1b2a;
+  font-size: 2rem;
+  color: #0b1626;
   letter-spacing: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .chapter-subtitle {
-  font-family: var(--font-script);
-  font-size: 1.9rem;
-  color: #7b2cbf;
-  margin-bottom: 15px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.45rem;
+  color: #8c6d23;
+  margin-bottom: 14px;
 }
 
 .chapter-poetic-quote {
+  font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  color: #4a5568;
-  max-width: 85%;
-  line-height: 1.6;
-  margin: 15px 0 25px 0;
+  font-size: 1.1rem;
+  color: #4a382b;
+  max-width: 88%;
+  line-height: 1.65;
+  margin: 15px 0 22px 0;
 }
 
 .chapter-feature-badge {
   display: inline-block;
-  padding: 5px 15px;
-  background: rgba(212, 175, 55, 0.15);
+  padding: 6px 18px;
+  background: rgba(197, 160, 89, 0.15);
   border: 1px solid var(--color-mari-gold);
   border-radius: 20px;
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #705510;
 }
 
 /* ============================================================
-   CARTA ANIMADA RECREADA DE MARI
+   GRAN DÍPTICO ILUMINADO RENACENTISTA (PÁGINAS 3 Y 4)
    ============================================================ */
-.letter-mari-container {
-  padding: 10px 5px;
+.letter-mari-manuscript {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  gap: 8px;
 }
 
-.letter-top-ornament {
-  text-align: center;
-  font-size: 1.1rem;
-  letter-spacing: 8px;
-  margin-bottom: 15px;
-  color: #8c6d23;
+.letter-mari-manuscript.left-folio {
+  padding-left: 0;
 }
 
-.illuminated-spread {
+.letter-mari-manuscript.right-folio {
+  padding-right: 0;
+}
+
+/* Orla iluminada lateral */
+.renaissance-illuminated-border {
+  width: 48px;
+  flex-shrink: 0;
   position: relative;
 }
 
-.illuminated-capital-wrapper {
+.renaissance-illuminated-border .border-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.folio-content-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding-right: 6px;
+}
+
+.folio-content-body.right-padded {
+  padding-left: 6px;
+  padding-right: 4px;
+}
+
+/* Cabecera Marie Curie y Red Cristalina */
+.renaissance-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+  padding-bottom: 6px;
+}
+
+.curie-laurel-cameo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.laurel-wreath-decor {
+  position: relative;
+  width: 70px;
+  height: 42px;
+}
+
+.laurel-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cameo-oval-frame {
+  position: absolute;
+  top: 4px;
+  left: 17px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid #d4af37;
+  background: #0d1b2a;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.curie-portrait-mini {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at center, rgba(212,175,55,0.3) 0%, transparent 80%), url('/images/carta_mari.jpg');
+  background-size: 700%;
+  background-position: 50% 12%;
+}
+
+.curie-cameo-tag {
+  font-family: var(--font-roman);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #705510;
+  text-transform: uppercase;
+}
+
+/* Gran Letra Capitular Iluminada "H" */
+.renaissance-dropcap-block {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 15px;
+  gap: 14px;
+  margin-bottom: 12px;
 }
 
-/* Letra Capitular H con orbitales atómicos girando */
-.illuminated-h {
-  position: relative;
-  width: 75px;
-  height: 75px;
-  background: linear-gradient(135deg, #0d1b2a 0%, #1e3a8a 100%);
-  border: 2px solid var(--color-mari-gold);
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.renaissance-illuminated-cap {
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.dropcap-outer-frame {
+  width: 76px;
+  height: 76px;
+  padding: 3px;
+  background: linear-gradient(135deg, #c5a059 0%, #8c6d23 50%, #fef08a 100%);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 0 6px rgba(0,0,0,0.4);
+}
+
+.dropcap-inner-blue {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #162a45 0%, #080f18 100%);
+  border: 1px solid #dfbe65;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
-.capital-letter {
+.cap-letter-glyph {
   font-family: var(--font-display);
-  font-size: 3.2rem;
-  color: var(--color-mari-gold-light);
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-  z-index: 2;
+  font-size: 3.4rem;
+  color: #fef08a;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8), 0 0 12px rgba(223, 190, 101, 0.7);
+  z-index: 3;
 }
 
-.atomic-orbit {
+.cap-atomic-orbit {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  border: 1px dashed rgba(212, 175, 55, 0.6);
+  width: 62px;
+  height: 62px;
+  border: 1px dashed rgba(223, 190, 101, 0.6);
   border-radius: 50%;
   pointer-events: none;
 }
 
-.orbit-1 {
+.cap-orbit-1 {
   transform: rotate(35deg);
-  animation: orbitSpin 8s linear infinite;
+  animation: orbitSpin 9s linear infinite;
 }
 
-.orbit-2 {
+.cap-orbit-2 {
   transform: rotate(-35deg);
-  animation: orbitSpin 12s linear infinite reverse;
+  animation: orbitSpin 14s linear infinite reverse;
 }
 
-@keyframes orbitSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.cap-atomic-nucleus {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fef08a;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #f59e0b;
 }
 
-.illuminated-lead-text {
+.dropcap-lead-content {
   flex-grow: 1;
 }
 
-.letter-salutation {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  color: #1b263b;
-  margin-bottom: 6px;
-  line-height: 1.3;
+.humanist-salutation {
+  font-family: var(--font-script);
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #162a45;
+  margin-bottom: 4px;
+  text-shadow: 0 0 1px rgba(0,0,0,0.15);
 }
 
-.lead-phrase {
+.humanist-lead-phrase {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.05rem;
-  color: #374151;
   line-height: 1.45;
+  color: #4a382b;
 }
 
-.letter-body-paragraphs {
-  margin-top: 10px;
+/* Tipografía de la Carta: Cursiva Humanista Renacentista (Cancelleresca) */
+.humanist-paragraphs {
+  margin: 8px 0;
 }
 
-.calligraphic-p {
-  font-family: var(--font-serif);
-  font-size: 1.06rem;
-  line-height: 1.65;
-  color: #27272a;
-  margin-bottom: 14px;
+.humanist-paragraphs.top-spacing {
+  margin-top: 14px;
+}
+
+.humanist-cursive-paragraph {
+  font-family: var(--font-script);
+  font-size: 1.95rem;
+  line-height: 1.35;
+  color: #2c1a0e;
+  margin-bottom: 12px;
   text-align: justify;
-  text-justify: inter-word;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 1px rgba(0,0,0,0.12);
 }
 
-/* Caja de Fórmula Molecular */
-.molecular-formula-box {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid #d4af37;
+/* Animaciones de Alquimia y Burbujas */
+@keyframes bubbleRise {
+  0% { transform: translateY(0); opacity: 0.2; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+
+.bubble-anim.b1 { animation: bubbleRise 2.5s ease-in-out infinite; }
+.bubble-anim.b2 { animation: bubbleRise 3.2s ease-in-out infinite 0.8s; }
+.bubble-anim.b3 { animation: bubbleRise 2.8s ease-in-out infinite 1.4s; }
+
+/* Animación Medallón Radium y Polonio */
+@keyframes radiumGlow {
+  0%, 100% { transform: scale(0.96); opacity: 0.35; stroke: #d4af37; }
+  50% { transform: scale(1.12); opacity: 0.85; stroke: #38bdf8; }
+}
+
+.radium-pulse-ring {
+  transform-origin: 20px 20px;
+  animation: radiumGlow 3.5s ease-in-out infinite;
+}
+
+/* Animación del Sol Renacentista */
+@keyframes sunRaysBreathe {
+  0%, 100% { opacity: 0.65; stroke-width: 1.6; }
+  50% { opacity: 1; stroke-width: 2.4; stroke: #f59e0b; filter: drop-shadow(0 0 4px #f59e0b); }
+}
+
+.sun-rays-pulse {
+  animation: sunRaysBreathe 3.5s ease-in-out infinite;
+}
+
+/* Animación de la doble hélice de ADN de Rosalind Franklin */
+@keyframes dnaWave {
+  0%, 100% { transform: scaleY(1); opacity: 0.65; }
+  50% { transform: scaleY(1.08); opacity: 1; stroke-width: 2.4; }
+}
+
+.dna-wave-anim {
+  animation: dnaWave 3s ease-in-out infinite;
+}
+.dna-wave-anim.reverse {
+  animation: dnaWave 3s ease-in-out infinite reverse;
+}
+
+/* Viñeta Inferior del Alquimista */
+.renaissance-lower-vignette {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(197, 160, 89, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vignette-motto-text {
+  font-family: var(--font-roman);
+  font-size: 0.72rem;
+  color: #705510;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* Friso superior en Folio Derecho */
+.renaissance-frieze-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.frieze-line {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c5a059, transparent);
+}
+
+.frieze-rosettes {
+  font-size: 0.85rem;
+  color: #8c6d23;
+  letter-spacing: 4px;
+}
+
+/* Gran Cartela Molecular de la Fórmula (Recreada fielmente) */
+.renaissance-formula-cartouche {
+  margin: 14px 0 10px 0;
+  border: 1.5px solid #c5a059;
   border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-  margin: 15px auto;
-  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.15);
+  background: rgba(251, 247, 238, 0.95);
+  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.18), inset 0 0 12px rgba(197, 160, 89, 0.15);
+  padding: 10px 14px;
   transition: all 0.3s ease;
 }
 
-.molecular-formula-box:hover {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.35);
+.renaissance-formula-cartouche:hover {
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
   transform: translateY(-2px);
 }
 
-.formula-text {
+.chem-structure-svg {
+  width: 100%;
+  height: 52px;
   display: block;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 700;
-  color: #8c6d23;
-  font-size: 0.95rem;
-  margin-top: 4px;
 }
 
-/* Banner de la Fórmula */
-.formula-grand-banner {
-  margin: 20px 0;
+.formula-bond {
+  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+
+.renaissance-formula-cartouche:hover .formula-bond {
+  stroke: #b45309;
+  stroke-width: 2.6;
+}
+
+.atom-node {
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.renaissance-formula-cartouche:hover .atom-node {
+  filter: drop-shadow(0 0 5px #f59e0b);
+}
+
+.cartouche-motto-banner {
   text-align: center;
-}
-
-.banner-ribbon-outer {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 22px;
-  background: linear-gradient(90deg, #0d1b2a 0%, #1b263b 50%, #0d1b2a 100%);
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 6px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-}
-
-.ribbon-text {
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-family: var(--font-roman);
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 2px;
+  color: #705510;
   text-transform: uppercase;
-  color: var(--color-mari-gold-light);
+  margin-top: 6px;
+  border-top: 1px dotted rgba(197, 160, 89, 0.5);
+  padding-top: 4px;
 }
 
-.ribbon-glow {
-  color: var(--color-mari-gold);
+/* Banderola en Pergamino Plegado Trompe-l'œil */
+.renaissance-parchment-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px auto;
+  max-width: 95%;
 }
 
-.closing-signoff-box {
-  text-align: center;
-  margin: 20px 0;
+.parchment-ribbon-main {
+  background: linear-gradient(180deg, #fef9ed 0%, #ecdcc0 100%);
+  border-top: 2px solid #b8923a;
+  border-bottom: 2px solid #b8923a;
+  padding: 8px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
-.curie-avatar-duo {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #6b7280;
-  margin-bottom: 8px;
-}
-
-.ribbon-banner-parchment {
-  display: inline-block;
-  padding: 8px 24px;
-  background: #f4ece1;
-  border-top: 2px solid #b89d62;
-  border-bottom: 2px solid #b89d62;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
+.ribbon-inscription {
+  font-family: var(--font-roman);
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: #4a3b22;
+  color: #3b2a1a;
+  text-transform: uppercase;
 }
 
-.btn-inspect-original {
+.ribbon-flourish {
+  color: #8c6d23;
+  font-size: 1rem;
+}
+
+.parchment-ribbon-tail {
+  width: 14px;
+  height: 30px;
+  background: #d8c29b;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  border-top: 1px solid #b8923a;
+  border-bottom: 1px solid #b8923a;
+}
+
+.parchment-ribbon-tail.right {
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Botón de inspección del manuscrito original */
+.renaissance-lightbox-action {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.btn-renaissance-inspect {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 12px;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px dashed var(--color-mari-gold);
-  border-radius: 6px;
+  padding: 8px 12px;
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px dashed #c5a059;
+  border-radius: 4px;
   color: #705510;
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-family: var(--font-roman);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 15px;
 }
 
-.btn-inspect-original:hover {
-  background: rgba(212, 175, 55, 0.25);
+.btn-renaissance-inspect:hover {
+  background: rgba(197, 160, 89, 0.25);
+  border-color: #8c6d23;
   transform: translateY(-1px);
 }
 
 /* ============================================================
-   SHOWCASE MASTER ART
+   SHOWCASE MASTER ART (PÁGINA 5)
    ============================================================ */
-.showcase-container {
+.renaissance-study-screen {
   padding: 10px 5px;
   text-align: center;
 }
 
+.renaissance-fleuron-sm {
+  font-size: 0.9rem;
+  color: #c5a059;
+  letter-spacing: 6px;
+  margin-bottom: 4px;
+}
+
 .showcase-title {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: #1b263b;
+  font-size: 1.35rem;
+  color: #0b1626;
   margin-bottom: 4px;
 }
 
 .showcase-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  color: #718096;
-  margin-bottom: 12px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #6b5c4f;
+  margin-bottom: 10px;
 }
 
-.showcase-frame {
+.renaissance-frame {
   position: relative;
   border: 2px solid var(--color-mari-gold);
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
   cursor: zoom-in;
 }
 
@@ -697,70 +937,84 @@ html, body {
   transition: transform 0.3s ease;
 }
 
-.showcase-frame:hover .showcase-img {
+.renaissance-frame:hover .showcase-img {
   transform: scale(1.02);
 }
 
 .showcase-lens-hint {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(13, 27, 42, 0.85);
-  color: #fff;
-  padding: 6px 12px;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(11, 22, 38, 0.9);
+  color: #f3e5ab;
+  padding: 5px 12px;
   border-radius: 20px;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-family: var(--font-roman);
+  font-size: 0.72rem;
   display: flex;
   align-items: center;
   gap: 6px;
-  border: 1px solid rgba(212, 175, 55, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.6);
+}
+
+.renaissance-essay-footer {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+}
+
+.essay-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #4a382b;
 }
 
 /* ============================================================
-   CAPÍTULOS NAVIDAD & FIN DE AÑO (HOLIDAY CARDS)
+   CAPÍTULOS NAVIDAD & FIN DE AÑO RENACENTISTAS
    ============================================================ */
-.holiday-card-container {
+.renaissance-holiday {
   padding: 15px 10px;
   text-align: center;
 }
 
-.holiday-motif-top {
-  font-size: 1.3rem;
-  letter-spacing: 10px;
-  margin-bottom: 12px;
+.renaissance-holiday-motif {
+  margin-bottom: 10px;
 }
 
 .holiday-title {
   font-family: var(--font-display);
   font-size: 1.45rem;
-  color: #1b263b;
-  margin-bottom: 5px;
+  color: #0b1626;
+  margin-bottom: 4px;
 }
 
 .holiday-salutation {
   font-family: var(--font-script);
-  font-size: 1.8rem;
-  color: #9333ea;
-  margin-bottom: 15px;
+  font-size: 2.1rem;
+  line-height: 1.2;
+  color: #162a45;
+  margin-bottom: 12px;
 }
 
-.holiday-parchment-sheet {
+.renaissance-parchment {
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid #d4af37;
-  border-radius: 8px;
-  padding: 20px 15px;
-  box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
-  margin-bottom: 18px;
+  border: 1px solid #c5a059;
+  border-radius: 6px;
+  padding: 18px 14px;
+  box-shadow: inset 0 0 15px rgba(197, 160, 89, 0.12);
+  margin-bottom: 16px;
 }
 
 .holiday-text-content {
   font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   line-height: 1.7;
-  color: #374151;
+  color: #2c1a0e;
   font-style: italic;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
+  text-align: justify;
 }
 
 .holiday-signature-space {
@@ -768,32 +1022,40 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-family: var(--font-script);
-  font-size: 1.4rem;
-  color: #705510;
-  border-top: 1px dashed #d4af37;
-  padding-top: 10px;
+  border-top: 1px dashed rgba(197, 160, 89, 0.4);
+  padding-top: 8px;
 }
 
-.holiday-footer-ribbon {
+.renaissance-feather-monogram {
+  font-size: 1.1rem;
+  color: #8c6d23;
+}
+
+.holiday-author-line {
+  font-family: var(--font-script);
+  font-size: 1.7rem;
+  color: #5c4738;
+}
+
+.renaissance-banner-ribbon {
   display: inline-block;
-  padding: 6px 18px;
-  background: rgba(212, 175, 55, 0.15);
+  padding: 6px 20px;
+  background: rgba(197, 160, 89, 0.15);
   border: 1px solid var(--color-mari-gold);
   border-radius: 20px;
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #705510;
 }
 
 /* ============================================================
-   EPÍLOGO / PRÓXIMAMENTE
+   EPÍLOGO RENACENTISTA
    ============================================================ */
-.epilogue-upcoming-screen {
-  padding: 50px 20px;
+.renaissance-colophon {
+  padding: 40px 15px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -803,45 +1065,44 @@ html, body {
 }
 
 .upcoming-ornament {
-  font-size: 1.2rem;
-  color: var(--color-mari-gold);
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .upcoming-title {
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  color: #1b263b;
-  margin-bottom: 5px;
+  font-size: 1.7rem;
+  color: #0b1626;
+  margin-bottom: 4px;
 }
 
 .upcoming-subtitle {
-  font-family: var(--font-script);
-  font-size: 1.8rem;
-  color: #7b2cbf;
-  margin-bottom: 15px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #8c6d23;
+  margin-bottom: 14px;
 }
 
 .upcoming-note {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.08rem;
-  line-height: 1.6;
-  color: #4b5563;
-  max-width: 85%;
-  margin-bottom: 25px;
+  line-height: 1.65;
+  color: #4a382b;
+  max-width: 88%;
+  margin-bottom: 22px;
 }
 
-.upcoming-footer-stamp {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 2px;
+.renaissance-stamp {
+  font-family: var(--font-roman);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
-  color: #9ca3af;
-  border-top: 1px solid #e5e7eb;
+  color: #8c7b64;
+  border-top: 1px solid rgba(197, 160, 89, 0.4);
   padding-top: 12px;
-  width: 70%;
+  width: 75%;
 }
 
 /* ============================================================
@@ -856,12 +1117,12 @@ html, body {
   align-items: center;
   justify-content: space-around;
   padding: 0 15px;
-  background: rgba(13, 27, 42, 0.92);
+  background: rgba(11, 22, 38, 0.94);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(212, 175, 55, 0.4);
+  border-top: 1px solid rgba(197, 160, 89, 0.45);
   border-radius: 16px 16px 0 0;
   z-index: 10;
-  box-shadow: 0 -8px 25px rgba(0,0,0,0.5);
+  box-shadow: 0 -8px 25px rgba(0,0,0,0.55);
 }
 
 .nav-btn-action {
@@ -869,18 +1130,18 @@ html, body {
   align-items: center;
   gap: 6px;
   background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: 20px;
   color: #e0e1dd;
   padding: 6px 14px;
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nav-btn-action:hover:not(:disabled) {
-  background: rgba(212, 175, 55, 0.25);
+  background: rgba(197, 160, 89, 0.25);
   color: #fff;
   border-color: var(--color-mari-gold);
 }
@@ -891,23 +1152,23 @@ html, body {
 }
 
 .nav-btn-primary {
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  color: #0d1b2a;
-  border-color: #ffd700;
-  font-weight: 600;
+  background: linear-gradient(135deg, #c5a059 0%, #8c6d23 100%);
+  color: #0b1626;
+  border-color: #dfbe65;
+  font-weight: 700;
 }
 
 .nav-btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #e5c048 0%, #bb931b 100%);
-  color: #0d1b2a;
+  background: linear-gradient(135deg, #dfbe65 0%, #a17f2e 100%);
+  color: #0b1626;
 }
 
 .page-indicator-badge {
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.8rem;
-  color: var(--color-mari-gold-light);
-  font-weight: 600;
-  letter-spacing: 1px;
+  color: var(--color-mari-gold-bright);
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .nav-btn-icon {
@@ -935,7 +1196,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(8, 15, 24, 0.95);
+  background: rgba(6, 12, 20, 0.96);
   backdrop-filter: blur(8px);
   display: none;
   justify-content: center;
@@ -961,8 +1222,8 @@ html, body {
   max-width: 100%;
   max-height: 82vh;
   border: 2px solid var(--color-mari-gold);
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+  border-radius: 6px;
+  box-shadow: 0 10px 45px rgba(0,0,0,0.85);
   object-fit: contain;
 }
 
@@ -1009,20 +1270,20 @@ html, body {
 }
 
 .chapters-modal-container {
-  background: #fcf8f0;
+  background: #fbf7ee;
   border: 2px solid var(--color-mari-gold);
-  border-radius: 12px;
+  border-radius: 10px;
   width: 100%;
   max-width: 480px;
   padding: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.55);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #d4af37;
+  border-bottom: 1px solid #c5a059;
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
@@ -1030,7 +1291,7 @@ html, body {
 .modal-header h3 {
   font-family: var(--font-display);
   font-size: 1.3rem;
-  color: #0d1b2a;
+  color: #0b1626;
 }
 
 .modal-close-btn {
@@ -1052,12 +1313,13 @@ html, body {
 }
 
 .modal-chapter-item:hover {
-  background: rgba(212, 175, 55, 0.15);
+  background: rgba(197, 160, 89, 0.15);
 }
 
 .modal-ch-roman {
-  font-family: var(--font-display);
+  font-family: var(--font-roman);
   font-size: 0.9rem;
+  font-weight: 700;
   color: var(--color-mari-gold-dark);
   min-width: 65px;
 }
@@ -1069,160 +1331,50 @@ html, body {
 .modal-ch-title {
   font-family: var(--font-serif);
   font-size: 1.1rem;
-  color: #1b263b;
+  color: #162a45;
 }
 
 .modal-ch-desc {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: #6b7280;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: #6b5c4f;
 }
 
 .modal-ch-page {
-  font-family: var(--font-sans);
+  font-family: var(--font-roman);
   font-size: 0.8rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #8c7b64;
 }
 
 /* ============================================================
-   PRIVATE GATE OVERLAY (PANTALLA DE ACCESO EXCLUSIVO)
+   RESPONSIVE DESIGN (MÓVIL & TABLET)
    ============================================================ */
-.private-gate-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, #1b263b 0%, #080f18 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  padding: 20px;
-  transition: opacity 0.5s ease;
-}
-
-.private-gate-overlay.unlocked-fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.private-gate-card {
-  background: rgba(13, 27, 42, 0.95);
-  border: 2px solid var(--color-mari-gold);
-  border-radius: 16px;
-  padding: 40px 30px;
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(212, 175, 55, 0.15);
-}
-
-.private-gate-seal {
-  width: 70px;
-  height: 70px;
-  background: rgba(212, 175, 55, 0.1);
-  border: 2px solid var(--color-mari-gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px auto;
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
-}
-
-.private-gate-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--color-mari-gold-light);
-  letter-spacing: 2px;
-  margin-bottom: 8px;
-}
-
-.private-gate-divider {
-  width: 50px;
-  height: 2px;
-  background: var(--color-mari-gold);
-  margin: 10px auto 18px auto;
-}
-
-.private-gate-desc {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
-  color: #c9d6df;
-  line-height: 1.6;
-  margin-bottom: 22px;
-}
-
-.private-gate-input-wrapper input {
-  width: 180px;
-  padding: 12px;
-  text-align: center;
-  font-family: var(--font-sans);
-  font-size: 1.8rem;
-  letter-spacing: 12px;
-  color: var(--color-mari-gold-light);
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 8px;
-  outline: none;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.5);
-  margin-bottom: 18px;
-}
-
-.private-gate-input-wrapper input:focus {
-  border-color: #ffd700;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-}
-
-.private-gate-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa820a 100%);
-  border: 1px solid #ffd700;
-  border-radius: 25px;
-  color: #0d1b2a;
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-  transition: all 0.2s ease;
-}
-
-.private-gate-btn:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px);
-}
-
-.private-gate-error {
-  color: #ff6b6b;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  margin-top: 12px;
-  min-height: 18px;
-}
-
-.private-gate-hint {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  color: #718096;
-  margin-top: 10px;
-}
-
-.shake {
-  animation: shakeAnim 0.4s ease;
-}
-
-@keyframes shakeAnim {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
+@media (max-width: 768px) {
+  .renaissance-illuminated-border {
+    width: 32px;
+  }
+  
+  .humanist-salutation {
+    font-size: 1.7rem;
+  }
+  
+  .humanist-cursive-paragraph {
+    font-size: 1.65rem;
+    line-height: 1.3;
+  }
+  
+  .dropcap-outer-frame {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .cap-letter-glyph {
+    font-size: 2.6rem;
+  }
+  
+  .chapter-main-title {
+    font-size: 1.6rem;
+  }
 }
