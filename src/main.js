@@ -32,18 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderer = new BookRenderer('flipbook');
     renderer.render();
 
-    // Inicializar PageFlip 3D
+    // Inicializar PageFlip 3D con proporción armónica 11:12 (coincidente con el manuscrito original)
     const bookEl = document.getElementById('flipbook');
     const isMobile = window.innerWidth <= 768;
+    const baseWidth = isMobile ? 350 : 550;
+    const baseHeight = isMobile ? 382 : 600;
 
     const pageFlip = new PageFlip(bookEl, {
-      width: 490,
-      height: 680,
+      width: baseWidth,
+      height: baseHeight,
       size: 'stretch',
-      minWidth: isMobile ? 320 : 280,
-      maxWidth: 580,
-      minHeight: 380,
-      maxHeight: isMobile ? Math.min(680, window.innerHeight - 85) : 880,
+      minWidth: isMobile ? 290 : 360,
+      maxWidth: isMobile ? 480 : 660,
+      minHeight: isMobile ? 316 : 392,
+      maxHeight: isMobile ? Math.min(620, window.innerHeight - 80) : 780,
       maxShadowOpacity: isMobile ? 0.3 : 0.45,
       showCover: true,
       mobileScrollSupport: false,
@@ -225,12 +227,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'ArrowLeft') safeFlipPrev();
     });
 
-    // Lightbox en fotos
-    document.querySelectorAll('.clean-photo-frame').forEach(frame => {
-      frame.addEventListener('click', (e) => {
+    // Lightbox en fotos y láminas de alta resolución
+    document.querySelectorAll('[data-full-img]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
         e.stopPropagation();
-        const src = frame.getAttribute('data-full-img');
-        const cap = frame.getAttribute('data-caption');
+        const src = trigger.getAttribute('data-full-img');
+        const cap = trigger.getAttribute('data-caption') || '';
         if (src) lightbox.open(src, cap);
       });
     });
