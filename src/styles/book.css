@@ -1,28 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Paleta cromática editorial renacentista veneciana */
-  --color-mari-blue: #0b1726;
-  --color-mari-navy: #15263d;
-  --color-mari-gold: #c5a059;
-  --color-mari-gold-bright: #dfbe65;
-  --color-mari-gold-dark: #8c6d23;
-  --color-cinabrio: #8c2d19;
+  /* Paleta en Acuarela Cálida: Gatitos Mari & Sergio */
+  --color-cat-cream: #faf5ed;
+  --color-cat-blush: #f4c8be;
+  --color-cat-rose: #d97466;
+  --color-cat-honey: #d4973b;
+  --color-cat-sage: #7da887;
+  --color-cat-ink: #382c2a;
+  --color-cat-muted: #6e5e5b;
   
-  /* Papel de vitela / pergamino histórico */
-  --color-parchment: #f6f0e4;
-  --color-parchment-shade: #eee4d0;
-  --color-parchment-border: #d4c4a5;
+  /* Papel de Acuarela */
+  --color-wc-paper: #fdfaf4;
+  --color-wc-paper-edge: #ebdcc9;
+  --color-wc-border: #e2cbb5;
   
-  /* Tintas históricas */
-  --color-ink-ferro: #1c1815;
-  --color-ink-sepia: #2d241e;
-  --color-ink-muted: #5e5045;
-  
-  /* Tipografías humanistas */
-  --font-serif: 'EB Garamond', 'Cormorant Garamond', Georgia, serif;
-  --font-display: 'Cinzel Decorative', 'Cinzel', serif;
-  --font-roman: 'Cinzel', 'Cormorant Garamond', serif;
+  /* Fuentes */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Cinzel', serif;
+  --font-script: 'Great Vibes', cursive;
   --font-sans: 'Montserrat', sans-serif;
 }
 
@@ -37,8 +33,8 @@ html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: radial-gradient(circle at center, #152438 0%, #070e17 100%);
-  color: var(--color-ink-sepia);
+  background: radial-gradient(circle at center, #2e262c 0%, #151114 100%);
+  color: var(--color-cat-ink);
   font-family: var(--font-serif);
   touch-action: pan-y;
 }
@@ -77,43 +73,44 @@ html, body {
 }
 
 #flipbook {
-  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75), 0 8px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 8px 25px rgba(0, 0, 0, 0.4);
   transition: transform 0.4s ease;
 }
 
-/* Base de Páginas en Papel de Vitela Renacentista */
+/* Páginas de Papel Acuarela */
 .page {
-  background-color: var(--color-parchment);
+  background-color: var(--color-wc-paper);
   background-image: 
-    radial-gradient(circle at 50% 50%, rgba(248, 243, 232, 0.96) 0%, rgba(240, 230, 212, 0.9) 100%),
-    linear-gradient(to right, rgba(0,0,0,0.06) 0%, transparent 4%, transparent 96%, rgba(0,0,0,0.04) 100%);
+    radial-gradient(circle at 50% 50%, rgba(255, 253, 248, 0.98) 0%, rgba(247, 240, 228, 0.92) 100%),
+    linear-gradient(to right, rgba(0,0,0,0.04) 0%, transparent 4%, transparent 96%, rgba(0,0,0,0.03) 100%);
   overflow: hidden;
   position: relative;
 }
 
-.page-parchment-border {
+.page-watercolor-border {
   position: absolute;
-  top: 14px;
-  left: 14px;
-  right: 14px;
-  bottom: 14px;
-  border: 1px solid var(--color-parchment-border);
-  outline: 1px solid rgba(197, 160, 89, 0.3);
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1.5px solid var(--color-wc-border);
+  outline: 1px dashed rgba(217, 116, 102, 0.35);
   outline-offset: -5px;
+  border-radius: 8px;
   pointer-events: none;
   z-index: 2;
 }
 
 .page-inner-scroll {
   position: absolute;
-  top: 24px;
-  left: 24px;
-  right: 24px;
-  bottom: 34px;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 30px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
-  scrollbar-color: rgba(197, 160, 89, 0.4) transparent;
+  scrollbar-color: rgba(217, 116, 102, 0.4) transparent;
   z-index: 3;
 }
 
@@ -122,44 +119,53 @@ html, body {
 }
 
 .page-inner-scroll::-webkit-scrollbar-thumb {
-  background: rgba(197, 160, 89, 0.4);
+  background: rgba(217, 116, 102, 0.4);
   border-radius: 4px;
 }
 
 .page-footer-number {
   position: absolute;
-  bottom: 12px;
+  bottom: 8px;
   left: 0;
   right: 0;
   text-align: center;
-  font-family: var(--font-roman);
-  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
   letter-spacing: 2px;
-  color: #8c7b64;
+  color: var(--color-cat-rose);
   z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-paw-left, .footer-paw-right {
+  font-size: 0.72rem;
+  opacity: 0.7;
 }
 
 /* ============================================================
-   PORTADA Y CONTRATAPA EN CUERO AZUL PRUSIANO Y ORO
+   PORTADA EN ACUARELA CÁLIDA (THEME CATS COVER)
    ============================================================ */
-.theme-mari-cover {
-  background: #0b1726 !important;
+.theme-cats-cover {
+  background: #2b2025 !important;
   color: #fff;
 }
 
-.mari-cover-bg {
+.cover-watercolor-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(ellipse at center, rgba(21, 38, 61, 0.9) 0%, rgba(11, 23, 38, 0.98) 100%),
+    radial-gradient(ellipse at center, rgba(82, 45, 56, 0.92) 0%, rgba(35, 23, 29, 0.98) 100%),
     url('/images/leather_texture.jpg') center/cover;
-  opacity: 0.96;
+  opacity: 0.95;
 }
 
-.cover-medallion-content {
+.cover-watercolor-content {
   position: relative;
   width: 100%;
   height: 100%;
@@ -167,186 +173,241 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px 24px;
+  padding: 24px 20px;
   text-align: center;
   z-index: 5;
 }
 
-.cover-renaissance-frame {
+.cover-painting-frame {
+  position: relative;
+  width: 210px;
+  max-width: 72%;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.cover-painting-frame:hover {
+  transform: scale(1.02);
+}
+
+.cover-painting-border {
+  border: 3px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(244, 200, 190, 0.35);
+  overflow: hidden;
+  position: relative;
+}
+
+.cover-painting-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cover-lens-hint {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(35, 23, 29, 0.85);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  opacity: 0.9;
+}
+
+/* Animación: Destellos mágicos en la portada */
+.anim-cover-sparkles {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  gap: 4px;
   pointer-events: none;
 }
 
-.cover-frame-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.cover-printer-device {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 18px;
-}
-
-.aldine-emblem-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
-}
-
-.cover-gold-badge {
-  max-width: 85%;
-}
-
-.cover-renaissance-fleuron {
+.anim-cover-sparkles .sparkle {
   font-size: 1.1rem;
-  color: var(--color-mari-gold-bright);
-  margin-bottom: 8px;
-  letter-spacing: 6px;
+  animation: sparkleTwinkle 2s ease-in-out infinite alternate;
 }
 
-.cover-gold-title {
-  font-family: var(--font-display);
-  font-size: 2.1rem;
-  font-weight: 700;
+.anim-cover-sparkles .s2 {
+  animation-delay: 0.6s;
+}
+
+.anim-cover-sparkles .s3 {
+  animation-delay: 1.2s;
+}
+
+@keyframes sparkleTwinkle {
+  0% { transform: scale(0.8) rotate(0deg); opacity: 0.4; }
+  100% { transform: scale(1.3) rotate(15deg); opacity: 1; filter: drop-shadow(0 0 6px #ffd166); }
+}
+
+.cover-text-badge {
+  max-width: 90%;
+}
+
+.cover-cat-paw-icon {
+  font-size: 0.95rem;
   letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+
+.cover-main-title {
+  font-family: var(--font-display);
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: #fff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(223, 190, 101, 0.3);
-  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 15px rgba(217, 116, 102, 0.4);
+  margin-bottom: 4px;
 }
 
-.cover-gold-divider {
-  width: 120px;
+.cover-soft-divider {
+  width: 100px;
   height: 2px;
-  margin: 10px auto 14px auto;
-  background: linear-gradient(90deg, transparent, var(--color-mari-gold-bright), transparent);
+  margin: 6px auto 10px auto;
+  background: linear-gradient(90deg, transparent, #f4c8be, transparent);
 }
 
-.cover-gold-subtitle {
-  font-family: var(--font-roman);
-  font-size: 1.05rem;
-  letter-spacing: 2px;
+.cover-main-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--color-mari-gold-bright);
-  margin-bottom: 8px;
+  color: #fceade;
+  margin-bottom: 6px;
 }
 
-.cover-gold-tagline {
+.cover-tagline {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: #d1c7b7;
-  margin-bottom: 24px;
+  font-size: 0.98rem;
+  color: #f7dcd5;
+  margin-bottom: 16px;
 }
 
 .btn-open-book {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 24px;
-  background: rgba(197, 160, 89, 0.15);
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 4px;
-  color: var(--color-mari-gold-bright);
-  font-family: var(--font-roman);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+  padding: 8px 20px;
+  background: rgba(217, 116, 102, 0.25);
+  border: 1.5px solid #f4c8be;
+  border-radius: 20px;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
 }
 
 .btn-open-book:hover {
-  background: rgba(197, 160, 89, 0.35);
+  background: rgba(217, 116, 102, 0.55);
   border-color: #fff;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(223, 190, 101, 0.4);
   transform: translateY(-2px);
-}
-
-.cover-formula-motto {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: #e5ded2;
-  margin-top: 10px;
-}
-
-.colophon-latin {
-  font-family: var(--font-roman);
-  font-size: 0.72rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-mari-gold);
-  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(217, 116, 102, 0.4);
 }
 
 /* ============================================================
-   TABLA DE CONTENIDOS (FRONTISPICIO ALDINO)
+   CONTRATAPA (BACK COVER)
    ============================================================ */
-.aldine-frontispiece {
-  padding: 10px 8px;
-}
-
-.editorial-header {
+.back-cover-badge {
   text-align: center;
-  margin-bottom: 18px;
+  max-width: 85%;
 }
 
-.aldine-leaf-fleuron {
-  font-size: 1rem;
-  color: var(--color-cinabrio);
-  letter-spacing: 6px;
-  margin-bottom: 6px;
+.back-paw-seal {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 12px auto;
 }
 
-.frontispiece-latin {
-  font-family: var(--font-roman);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--color-mari-gold-dark);
-  text-transform: uppercase;
+.paw-heart-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
 }
 
-.editorial-title {
+.back-title {
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  color: var(--color-ink-ferro);
-  margin: 4px 0 6px 0;
-  letter-spacing: 1px;
+  font-size: 1.6rem;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 4px;
 }
 
-.frontispiece-subtitle {
+.back-quote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.92rem;
-  color: var(--color-ink-muted);
-  line-height: 1.4;
-  max-width: 90%;
-  margin: 0 auto;
+  font-size: 1.05rem;
+  color: #fceade;
+  margin-bottom: 8px;
 }
 
-.editorial-rule {
+.back-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #e5cfc8;
+}
+
+/* ============================================================
+   TABLA DE CONTENIDOS (ÍNDICE EN ACUARELA)
+   ============================================================ */
+.watercolor-toc {
+  padding: 10px 6px;
+}
+
+.page-story-head {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.head-paw-ornament {
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+
+.page-story-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-cat-rose);
+  margin-bottom: 4px;
+}
+
+.page-story-subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-cat-muted);
+}
+
+.watercolor-brush-divider {
   width: 80px;
-  height: 1px;
-  margin: 10px auto 0 auto;
-  background: var(--color-cinabrio);
+  height: 2px;
+  margin: 6px auto 12px auto;
+  background: linear-gradient(90deg, transparent, var(--color-cat-rose), transparent);
 }
 
-.toc-list {
+.toc-list-watercolor {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .toc-item-row {
@@ -357,35 +418,32 @@ html, body {
   text-align: left;
   cursor: pointer;
   padding: 6px 8px;
-  border-radius: 4px;
-  transition: background 0.2s ease;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.2s ease;
   width: 100%;
 }
 
 .toc-item-row:hover {
-  background: rgba(197, 160, 89, 0.15);
+  background: rgba(244, 200, 190, 0.25);
+  transform: translateX(3px);
 }
 
-.toc-roman {
-  font-family: var(--font-roman);
+.toc-paw-badge {
   font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-cinabrio);
-  min-width: 78px;
-  letter-spacing: 1px;
+  margin-right: 8px;
 }
 
 .toc-info {
   flex-grow: 1;
-  padding-right: 8px;
+  padding-right: 6px;
 }
 
 .toc-title {
   display: block;
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
   font-weight: 600;
-  color: var(--color-ink-ferro);
+  color: var(--color-cat-ink);
 }
 
 .toc-desc {
@@ -393,473 +451,812 @@ html, body {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.82rem;
-  color: var(--color-ink-muted);
+  color: var(--color-cat-muted);
 }
 
-.toc-dots {
+.toc-dots-leader {
   flex-grow: 1;
-  border-bottom: 1px dotted rgba(140, 109, 35, 0.45);
-  margin: 0 8px;
+  border-bottom: 1.5px dotted rgba(217, 116, 102, 0.45);
+  margin: 0 6px;
   height: 1px;
 }
 
 .toc-page-num {
-  font-family: var(--font-roman);
-  font-size: 0.82rem;
-  color: var(--color-mari-gold-dark);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   font-weight: 700;
+  color: var(--color-cat-rose);
 }
 
-.humanist-motto-box {
-  border-top: 1px solid rgba(197, 160, 89, 0.35);
-  padding-top: 14px;
-  text-align: center;
+.toc-quote-box {
+  background: rgba(244, 200, 190, 0.2);
+  border-left: 2px solid var(--color-cat-rose);
+  padding: 8px 12px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 14px;
 }
 
-.motto-quote {
+.toc-quote-text {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--color-ink-sepia);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--color-cat-ink);
+}
+
+/* Animación: Colita de gato oscilando en el pie del índice */
+.anim-cat-tail-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.cat-tail-svg {
+  width: 70px;
+  height: 25px;
+}
+
+.anim-tail-sway {
+  transform-origin: 20px 30px;
+  animation: tailSway 2.5s ease-in-out infinite;
+}
+
+@keyframes tailSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(18deg); }
+}
+
+.cat-purr-text {
+  font-family: var(--font-script);
+  font-size: 1.25rem;
+  color: var(--color-cat-rose);
 }
 
 /* ============================================================
    CABECERAS DE CAPÍTULO (PORTADAS INTERIORES)
    ============================================================ */
-.aldine-title-page {
-  padding: 40px 15px;
+.chapter-header-watercolor {
   text-align: center;
+  padding: 10px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
 }
 
-.frontispiece-vignette-top {
-  margin-bottom: 15px;
-}
-
-.chapter-roman-numeral {
-  font-family: var(--font-roman);
-  font-size: 0.9rem;
+.chapter-badge-pill {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--color-cinabrio);
-  margin-bottom: 8px;
+  color: #fff;
+  background: var(--color-cat-rose);
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 6px;
 }
 
-.chapter-main-title {
+.chapter-roman {
   font-family: var(--font-display);
-  font-size: 1.85rem;
-  color: var(--color-ink-ferro);
-  margin-bottom: 8px;
-  letter-spacing: 1.5px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--color-cat-honey);
+  margin-bottom: 2px;
 }
 
-.chapter-gold-divider {
-  width: 90px;
-  height: 1.5px;
-  margin: 8px auto 14px auto;
-  background: var(--color-mari-gold);
+.chapter-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-cat-ink);
+  margin-bottom: 2px;
 }
 
-.chapter-subtitle-text {
+.chapter-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.15rem;
-  color: var(--color-ink-muted);
-  max-width: 90%;
-  margin-bottom: 24px;
+  font-size: 0.95rem;
+  color: var(--color-cat-muted);
 }
 
-.chapter-philosophical-epigraph {
-  border-left: 2px solid var(--color-cinabrio);
-  padding: 8px 16px;
-  margin: 10px 10px 24px 10px;
-  text-align: left;
-  background: rgba(197, 160, 89, 0.08);
-}
-
-.epigraph-text {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-ink-sepia);
-}
-
-.chapter-emblem-badge {
-  font-family: var(--font-roman);
-  font-size: 0.76rem;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--color-mari-gold-dark);
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* ============================================================
-   LÁMINAS DEL MANUSCRITO ILUMINADO (PÁGINAS 3 Y 4)
-   ============================================================ */
-.page-folio-wrapper {
-  padding: 0 !important;
-  background-color: #f7f1e5 !important;
-}
-
-.manuscript-folio-spread {
+.chapter-painting-box {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 220px;
+  max-width: 82%;
+  margin: 10px auto;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 0 10px rgba(244, 200, 190, 0.3);
   overflow: hidden;
-  background-color: #f7f1e5;
-}
-
-.folio-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-.manuscript-plate-img {
+.chapter-painting-box:hover {
+  transform: scale(1.02);
+}
+
+.chapter-painting-img {
   width: 100%;
-  height: 100%;
-  object-fit: fill;
+  height: auto;
   display: block;
 }
 
-/* Sombras orgánicas de encuadernación (lomo) */
-.folio-gutter-shadow {
+.painting-zoom-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(43, 32, 37, 0.85);
+  color: #fff;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Animación: Llamita de vela de cumpleaños */
+.anim-birthday-candle-flame {
+  position: absolute;
+  top: 52%;
+  left: 48%;
+  pointer-events: none;
+}
+
+.candle-glow {
+  width: 8px;
+  height: 12px;
+  background: radial-gradient(circle, #fff7ad 0%, #ff9e00 70%, transparent 100%);
+  border-radius: 50% 50% 35% 35%;
+  animation: candleFlicker 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes candleFlicker {
+  0% { transform: scale(0.9) rotate(-3deg); opacity: 0.8; }
+  50% { transform: scale(1.15) rotate(3deg); opacity: 1; filter: drop-shadow(0 0 6px #ffbe0b); }
+  100% { transform: scale(1.0) rotate(-1deg); opacity: 0.9; }
+}
+
+/* Animación: Nieve cayendo en el capítulo de invierno */
+.anim-snow-layer {
   position: absolute;
   top: 0;
-  bottom: 0;
-  width: 38px;
-  pointer-events: none;
-  z-index: 5;
-}
-
-.gutter-right {
-  right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.08) 40%, transparent 100%);
-}
-
-.gutter-left {
-  left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.08) 40%, transparent 100%);
-}
-
-/* Botón discreto de lupa HD en el manuscrito */
-.folio-zoom-hint {
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(11, 23, 38, 0.85);
-  border: 1px solid var(--color-mari-gold);
-  border-radius: 14px;
-  padding: 4px 10px;
-  color: var(--color-mari-gold-bright);
-  font-family: var(--font-roman);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  transition: all 0.2s ease;
-}
-
-.folio-left .folio-zoom-hint {
-  right: auto;
-  left: 14px;
-}
-
-.folio-zoom-hint:hover {
-  background: var(--color-mari-gold);
-  color: #0b1726;
-}
-
-.folio-footer-indicator {
-  position: absolute;
-  bottom: 8px;
   left: 0;
   right: 0;
-  text-align: center;
-  font-family: var(--font-roman);
-  font-size: 0.72rem;
-  color: #7d6b53;
+  height: 100%;
   pointer-events: none;
-  z-index: 4;
+  overflow: hidden;
+}
+
+.snow-flake {
+  position: absolute;
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0.8;
+  animation: snowfall 4s linear infinite;
+}
+
+.sf1 { left: 20%; animation-delay: 0s; font-size: 0.8rem; }
+.sf2 { left: 55%; animation-delay: 1.5s; font-size: 1.1rem; }
+.sf3 { left: 80%; animation-delay: 2.8s; font-size: 0.9rem; }
+
+@keyframes snowfall {
+  0% { top: -10%; transform: translateX(0); opacity: 0; }
+  20% { opacity: 0.85; }
+  80% { opacity: 0.85; }
+  100% { top: 110%; transform: translateX(15px); opacity: 0; }
+}
+
+/* Animación: Fuegos artificiales suaves de fin de año */
+.anim-firework-sparks {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  pointer-events: none;
+}
+
+.anim-firework-sparks .spark {
+  position: absolute;
+  font-size: 1rem;
+  animation: sparkBloom 3s ease-out infinite;
+}
+
+.fw1 { top: 0; left: 0; animation-delay: 0s; }
+.fw2 { top: 15px; left: -25px; animation-delay: 1s; }
+.fw3 { top: -10px; left: -15px; animation-delay: 2s; }
+
+@keyframes sparkBloom {
+  0% { transform: scale(0.2); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; filter: drop-shadow(0 0 8px #f4c8be); }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.chapter-quote-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-wc-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  max-width: 90%;
+  margin: 6px auto;
+}
+
+.chapter-quote-p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--color-cat-ink);
 }
 
 /* ============================================================
-   ESTUDIO DEL MANUSCRITO (PÁGINA 5)
+   PÁGINAS DE CARTAS EN ACUARELA (PÁGINAS 3 Y 4)
    ============================================================ */
-.aldine-study-page {
-  padding: 10px 5px;
+.letter-story-container {
+  padding: 8px 6px;
 }
 
-.showcase-header {
+/* Animación: Avioncito de papel planeando */
+.anim-paper-plane-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 42px;
+  margin-bottom: 6px;
+}
+
+.paper-plane-svg {
+  width: 48px;
+  height: 32px;
+}
+
+.anim-plane-glider {
+  animation: planeGlider 4s ease-in-out infinite alternate;
+}
+
+@keyframes planeGlider {
+  0% { transform: translateX(-40px) translateY(4px) rotate(-6deg); }
+  50% { transform: translateX(0px) translateY(-6px) rotate(2deg); }
+  100% { transform: translateX(40px) translateY(3px) rotate(8deg); }
+}
+
+.plane-trail {
+  display: flex;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.plane-trail .star {
+  font-size: 0.85rem;
+  animation: trailGlow 2s ease-in-out infinite alternate;
+}
+
+.s-2 { animation-delay: 0.7s; }
+.s-3 { animation-delay: 1.4s; }
+
+@keyframes trailGlow {
+  0% { opacity: 0.3; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+.letter-header-row {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+.letter-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-cat-rose);
+}
+
+.letter-main-greeting {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--color-cat-ink);
+  margin-top: 2px;
+}
+
+.letter-lead-card {
+  background: rgba(244, 200, 190, 0.25);
+  border-left: 3px solid var(--color-cat-rose);
+  padding: 8px 12px;
+  border-radius: 0 8px 8px 0;
   margin-bottom: 12px;
+}
+
+.lead-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--color-cat-ink);
+  font-weight: 600;
+}
+
+.letter-body-paragraphs {
+  margin-bottom: 12px;
+}
+
+.watercolor-story-p {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-cat-ink);
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+.letter-highlight-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-cat-blush);
+  border-radius: 20px;
+  padding: 8px 14px;
+  box-shadow: 0 4px 12px rgba(217, 116, 102, 0.15);
+  margin: 12px auto 6px auto;
+  max-width: 95%;
+}
+
+.bubble-paw {
+  font-size: 0.95rem;
+}
+
+.bubble-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-cat-rose);
+  text-align: center;
+}
+
+/* Tarjeta con la pintura de Mari en el laboratorio */
+.letter-painting-card {
+  position: relative;
+  width: 220px;
+  max-width: 82%;
+  margin: 10px auto;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12), 0 0 10px rgba(244, 200, 190, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+
+.letter-painting-card:hover {
+  transform: scale(1.02);
+}
+
+.letter-card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animación: Burbujitas del matraz */
+.anim-lab-bubbles {
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.anim-lab-bubbles .bubble {
+  font-size: 0.85rem;
+  animation: bubbleFloat 2.5s ease-in infinite;
+}
+
+.b1 { animation-delay: 0s; }
+.b2 { animation-delay: 0.8s; font-size: 0.75rem; }
+.b3 { animation-delay: 1.6s; }
+.b4 { animation-delay: 2.2s; font-size: 0.7rem; }
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  30% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  100% { transform: translateY(-40px) scale(1.2); opacity: 0; }
+}
+
+.letter-smile-quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.quote-flower {
+  font-size: 0.95rem;
+}
+
+.quote-text {
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  color: var(--color-cat-rose);
+}
+
+/* ============================================================
+   LÁMINA MAESTRA DE AMOR INCONDICIONAL (PÁGINA 5)
+   ============================================================ */
+.master-showcase-container {
+  padding: 10px 6px;
+  text-align: center;
+}
+
+.showcase-story-head {
+  margin-bottom: 10px;
+}
+
+.showcase-heart-icon {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+}
+
+.anim-heart-pulse {
+  animation: heartPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
 }
 
 .showcase-title {
   font-family: var(--font-display);
-  font-size: 1.35rem;
-  color: var(--color-ink-ferro);
-  margin-bottom: 4px;
+  font-size: 1.3rem;
+  color: var(--color-cat-ink);
 }
 
 .showcase-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.88rem;
-  color: var(--color-ink-muted);
+  color: var(--color-cat-muted);
 }
 
-.showcase-frame {
+.master-painting-frame {
   position: relative;
-  width: 100%;
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 4px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  width: 250px;
+  max-width: 90%;
+  margin: 10px auto;
   cursor: pointer;
-  margin-bottom: 14px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-.showcase-img {
+.master-painting-frame:hover {
+  transform: scale(1.02);
+}
+
+.painting-deckled-edge {
+  border: 4px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18), 0 0 15px rgba(244, 200, 190, 0.4);
+  position: relative;
+}
+
+.master-painting-img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.showcase-lens-hint {
+.master-zoom-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(11, 23, 38, 0.85);
-  padding: 6px 10px;
+  background: rgba(43, 32, 37, 0.85);
+  color: #fff;
+  padding: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Animación: Corazoncitos flotantes en la lámina maestra */
+.anim-floating-hearts-layer {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  height: 60px;
+  pointer-events: none;
+}
+
+.anim-floating-hearts-layer .floating-heart {
+  position: absolute;
+  font-size: 1rem;
+  animation: floatHeart 3.5s ease-in-out infinite;
+}
+
+.fh1 { left: 15%; animation-delay: 0s; }
+.fh2 { left: 45%; animation-delay: 1.2s; font-size: 1.2rem; }
+.fh3 { left: 75%; animation-delay: 2.2s; }
+.fh4 { left: 88%; animation-delay: 0.6s; font-size: 0.8rem; }
+
+@keyframes floatHeart {
+  0% { transform: translateY(30px) scale(0.6); opacity: 0; }
+  40% { opacity: 0.9; }
+  80% { opacity: 0.9; }
+  100% { transform: translateY(-20px) scale(1.2); opacity: 0; }
+}
+
+.master-dedication-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--color-wc-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-top: 10px;
+}
+
+.dedication-p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--color-cat-ink);
+  text-align: justify;
+}
+
+/* ============================================================
+   FESTIVIDADES: NAVIDAD & AÑO NUEVO (PÁGINAS 7 Y 9)
+   ============================================================ */
+.holiday-story-container {
+  padding: 10px 6px;
+}
+
+.holiday-header-box {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.holiday-icon-motif {
+  font-size: 1rem;
+  letter-spacing: 4px;
+  margin-bottom: 2px;
+}
+
+.holiday-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-cat-rose);
+}
+
+/* Animación: Vapor de chocolate caliente */
+.anim-hot-cocoa-steam {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  color: var(--color-mari-gold-bright);
-  font-family: var(--font-roman);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-.showcase-essay-block {
-  text-align: justify;
-  margin-bottom: 14px;
-}
-
-.essay-heading {
-  font-family: var(--font-roman);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-cinabrio);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  height: 30px;
   margin-bottom: 6px;
-  border-bottom: 1px solid rgba(140, 45, 25, 0.3);
-  padding-bottom: 2px;
 }
 
-.essay-p {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: var(--color-ink-sepia);
-  margin-bottom: 8px;
+.steam-svg {
+  width: 40px;
+  height: 25px;
 }
 
-.showcase-quote-box {
-  background: rgba(197, 160, 89, 0.1);
-  border-left: 2px solid var(--color-mari-gold);
-  padding: 8px 12px;
-  text-align: left;
+.anim-steam-1 {
+  animation: steamRise 2.4s ease-in-out infinite;
 }
 
-.showcase-quote-p {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--color-ink-muted);
+.anim-steam-2 {
+  animation: steamRise 2.4s ease-in-out infinite 1.2s;
 }
 
-/* ============================================================
-   TRATADOS DE FESTIVIDADES (NAVIDAD Y AÑO NUEVO)
-   ============================================================ */
-.aldine-treatise {
-  padding: 15px 10px;
+@keyframes steamRise {
+  0% { transform: translateY(10px) scaleX(0.8); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-10px) scaleX(1.2); opacity: 0; }
 }
 
-.holiday-motif-top {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.motif-fleuron {
-  font-size: 0.95rem;
-  color: var(--color-cinabrio);
-  margin: 0 4px;
-}
-
-.holiday-epistle-head {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.epistle-rubric {
-  font-family: var(--font-roman);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--color-mari-gold-dark);
+.steam-label, .lantern-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-cat-rose);
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.holiday-main-title {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  color: var(--color-ink-ferro);
-  margin: 4px 0 6px 0;
+/* Animación: Farolillo flotante */
+.anim-sky-lantern-float {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 32px;
+  margin-bottom: 6px;
 }
 
-.holiday-epistle-body {
-  text-align: justify;
-  margin-bottom: 20px;
+.lantern-orb {
+  font-size: 1.2rem;
+  animation: lanternBob 3s ease-in-out infinite alternate;
+}
+
+@keyframes lanternBob {
+  0% { transform: translateY(4px); }
+  100% { transform: translateY(-6px); filter: drop-shadow(0 0 6px #ffd166); }
+}
+
+.holiday-epistle-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-wc-border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
 }
 
 .epistle-salutation {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.15rem;
-  color: var(--color-cinabrio);
-  margin-bottom: 12px;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: var(--color-cat-rose);
+  margin-bottom: 8px;
 }
 
 .epistle-paragraph {
   font-family: var(--font-serif);
   font-size: 1.02rem;
-  line-height: 1.65;
-  color: var(--color-ink-sepia);
-  margin-bottom: 12px;
-  text-indent: 1.2em;
+  line-height: 1.6;
+  color: var(--color-cat-ink);
+  margin-bottom: 8px;
+  text-align: justify;
 }
 
-.drop-cap-paragraph {
-  text-indent: 0;
-}
-
-.illuminated-drop-cap {
-  float: left;
-  font-family: var(--font-display);
-  font-size: 3.2rem;
-  line-height: 0.85;
-  padding-top: 4px;
-  padding-right: 8px;
-  padding-bottom: 2px;
-  color: var(--color-cinabrio);
-  text-shadow: 1px 1px 0 rgba(197, 160, 89, 0.4);
-}
-
-.holiday-motto-ribbon {
+.holiday-banner-ribbon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(244, 200, 190, 0.3);
+  border-top: 1px solid var(--color-cat-rose);
+  border-bottom: 1px solid var(--color-cat-rose);
+  padding: 6px 12px;
   text-align: center;
-  border-top: 1px solid rgba(197, 160, 89, 0.35);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.35);
-  padding: 8px 12px;
 }
 
-.ribbon-text {
-  font-family: var(--font-roman);
+.banner-paw {
+  font-size: 0.85rem;
+}
+
+.banner-text {
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  color: var(--color-mari-gold-dark);
+  color: var(--color-cat-ink);
 }
 
 /* ============================================================
-   COLOFÓN RENACENTISTA (EPÍLOGO)
+   EPÍLOGO & COLOFÓN (PÁGINA 10)
    ============================================================ */
-.aldine-colophon-page {
-  padding: 40px 15px;
+.epilogue-story-container {
+  padding: 10px 6px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
 }
 
-.epilogue-chapter-tag {
-  font-family: var(--font-roman);
-  font-size: 0.78rem;
+.epilogue-head {
+  margin-bottom: 6px;
+}
+
+.epilogue-tag {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--color-cinabrio);
+  letter-spacing: 1.5px;
   text-transform: uppercase;
+  color: var(--color-cat-honey);
 }
 
-.epilogue-main-title {
+.epilogue-title {
   font-family: var(--font-display);
-  font-size: 1.55rem;
-  color: var(--color-ink-ferro);
-  margin: 4px 0 10px 0;
+  font-size: 1.35rem;
+  color: var(--color-cat-ink);
 }
 
-.epilogue-body-note {
-  max-width: 88%;
-  margin: 10px auto 20px auto;
+.epilogue-painting-box {
+  position: relative;
+  width: 220px;
+  max-width: 82%;
+  margin: 8px auto;
+  border: 3px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 0 10px rgba(244, 200, 190, 0.3);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
-.epilogue-text-p {
+.epilogue-painting-box:hover {
+  transform: scale(1.02);
+}
+
+.epilogue-painting-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Animación: Huellitas apareciendo en secuencia */
+.anim-paw-trail {
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.trail-paw {
+  font-size: 0.85rem;
+  animation: pawStepGlow 3s ease-in-out infinite;
+}
+
+.tp1 { animation-delay: 0s; }
+.tp2 { animation-delay: 0.7s; }
+.tp3 { animation-delay: 1.4s; }
+.tp4 { animation-delay: 2.1s; }
+
+@keyframes pawStepGlow {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 4px #d97466); }
+}
+
+.epilogue-note-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-wc-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 8px auto;
+  max-width: 90%;
+}
+
+.epilogue-p {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-cat-ink);
 }
 
-.renaissance-printer-mark {
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 15px auto;
+.epilogue-colophon-stamp {
+  border-top: 1px solid var(--color-cat-blush);
+  padding-top: 8px;
+  margin-top: 8px;
 }
 
-.colophon-mark-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.colophon-stamp {
-  border-top: 1px solid rgba(197, 160, 89, 0.4);
-  padding-top: 12px;
-  max-width: 80%;
-  margin: 0 auto;
-}
-
-.colophon-p {
-  font-family: var(--font-roman);
+.colophon-text {
+  font-family: var(--font-sans);
   font-size: 0.74rem;
-  letter-spacing: 1.5px;
-  color: #7a6b57;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--color-cat-rose);
 }
 
 /* ============================================================
@@ -874,33 +1271,33 @@ html, body {
   align-items: center;
   justify-content: space-around;
   padding: 0 15px;
-  background: rgba(11, 23, 38, 0.95);
+  background: rgba(43, 32, 37, 0.95);
   backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(197, 160, 89, 0.4);
-  border-radius: 14px 14px 0 0;
+  border-top: 1.5px solid var(--color-cat-blush);
+  border-radius: 16px 16px 0 0;
   z-index: 10;
-  box-shadow: 0 -8px 25px rgba(0,0,0,0.55);
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.45);
 }
 
 .nav-btn-action {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(197, 160, 89, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(244, 200, 190, 0.4);
   border-radius: 20px;
-  color: #e0e1dd;
+  color: #fff;
   padding: 6px 14px;
-  font-family: var(--font-roman);
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nav-btn-action:hover:not(:disabled) {
-  background: rgba(197, 160, 89, 0.25);
-  color: #fff;
-  border-color: var(--color-mari-gold);
+  background: rgba(217, 116, 102, 0.4);
+  border-color: #fff;
 }
 
 .nav-btn-action:disabled {
@@ -909,30 +1306,28 @@ html, body {
 }
 
 .nav-btn-primary {
-  background: linear-gradient(135deg, #c5a059 0%, #8c6d23 100%);
-  color: #0b1726;
-  border-color: #dfbe65;
-  font-weight: 700;
+  background: linear-gradient(135deg, #d97466 0%, #a84227 100%);
+  color: #fff;
+  border-color: #f4c8be;
 }
 
 .nav-btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #dfbe65 0%, #a17f2e 100%);
-  color: #0b1726;
+  background: linear-gradient(135deg, #e07a5f 0%, #b84c30 100%);
 }
 
 .page-indicator-badge {
-  font-family: var(--font-roman);
-  font-size: 0.8rem;
-  color: var(--color-mari-gold-bright);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #fceade;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   cursor: pointer;
 }
 
 .nav-btn-icon {
   background: none;
   border: none;
-  color: #e0e1dd;
+  color: #fceade;
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
@@ -942,7 +1337,7 @@ html, body {
 }
 
 .nav-btn-icon:hover {
-  color: var(--color-mari-gold);
+  color: #fff;
 }
 
 /* ============================================================
@@ -954,7 +1349,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(6, 12, 20, 0.96);
+  background: rgba(20, 14, 17, 0.96);
   backdrop-filter: blur(8px);
   display: none;
   justify-content: center;
@@ -979,9 +1374,9 @@ html, body {
 .lightbox-image {
   max-width: 100%;
   max-height: 82vh;
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 4px;
-  box-shadow: 0 10px 45px rgba(0,0,0,0.85);
+  border: 3px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.85);
   object-fit: contain;
 }
 
@@ -989,7 +1384,7 @@ html, body {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.05rem;
-  color: #e0e1dd;
+  color: #fceade;
   margin-top: 12px;
   text-align: center;
 }
@@ -1014,7 +1409,7 @@ html, body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   display: none;
   justify-content: center;
@@ -1028,28 +1423,28 @@ html, body {
 }
 
 .chapters-modal-container {
-  background: #f6f0e4;
-  border: 1.5px solid var(--color-mari-gold);
-  border-radius: 8px;
+  background: var(--color-wc-paper);
+  border: 2px solid var(--color-cat-blush);
+  border-radius: 12px;
   width: 100%;
   max-width: 480px;
   padding: 20px;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.55);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--color-cinabrio);
+  border-bottom: 1.5px solid var(--color-cat-blush);
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
 
 .modal-header h3 {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--color-ink-ferro);
+  font-size: 1.25rem;
+  color: var(--color-cat-ink);
 }
 
 .modal-close-btn {
@@ -1057,29 +1452,29 @@ html, body {
   border: none;
   font-size: 1.6rem;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--color-cat-muted);
 }
 
 .modal-chapter-item {
   display: flex;
   align-items: center;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   margin-bottom: 8px;
   transition: background 0.2s ease;
 }
 
 .modal-chapter-item:hover {
-  background: rgba(197, 160, 89, 0.15);
+  background: rgba(244, 200, 190, 0.25);
 }
 
 .modal-ch-roman {
-  font-family: var(--font-roman);
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--color-cinabrio);
-  min-width: 70px;
+  color: var(--color-cat-rose);
+  min-width: 75px;
 }
 
 .modal-ch-info {
@@ -1087,51 +1482,51 @@ html, body {
 }
 
 .modal-ch-title {
-  font-family: var(--font-serif);
-  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--color-ink-ferro);
+  color: var(--color-cat-ink);
 }
 
 .modal-ch-desc {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 0.82rem;
-  color: var(--color-ink-muted);
+  font-size: 0.8rem;
+  color: var(--color-cat-muted);
 }
 
 .modal-ch-page {
-  font-family: var(--font-roman);
-  font-size: 0.8rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
   font-weight: 700;
-  color: #8c7b64;
+  color: var(--color-cat-rose);
 }
 
 /* ============================================================
    RESPONSIVE DESIGN (MÓVIL & TABLET)
    ============================================================ */
 @media (max-width: 768px) {
-  .cover-gold-title {
-    font-size: 1.7rem;
+  .cover-main-title {
+    font-size: 1.65rem;
     letter-spacing: 2px;
   }
 
-  .chapter-main-title {
-    font-size: 1.5rem;
-  }
-
-  .editorial-title {
+  .chapter-title {
     font-size: 1.25rem;
   }
 
-  .holiday-main-title {
+  .page-story-title {
     font-size: 1.25rem;
+  }
+
+  .holiday-title {
+    font-size: 1.15rem;
   }
 
   .page-inner-scroll {
-    top: 18px;
-    left: 18px;
-    right: 18px;
-    bottom: 28px;
+    top: 16px;
+    left: 14px;
+    right: 14px;
+    bottom: 26px;
   }
 }

@@ -35,17 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inicializar PageFlip 3D con proporción armónica 11:12 (coincidente con el manuscrito original)
     const bookEl = document.getElementById('flipbook');
     const isMobile = window.innerWidth <= 768;
-    const baseWidth = isMobile ? 350 : 550;
-    const baseHeight = isMobile ? 382 : 600;
+    const baseWidth = isMobile ? 340 : 490;
+    const baseHeight = isMobile ? 470 : 680;
 
     const pageFlip = new PageFlip(bookEl, {
       width: baseWidth,
       height: baseHeight,
       size: 'stretch',
-      minWidth: isMobile ? 290 : 360,
-      maxWidth: isMobile ? 480 : 660,
-      minHeight: isMobile ? 316 : 392,
-      maxHeight: isMobile ? Math.min(620, window.innerHeight - 80) : 780,
+      minWidth: isMobile ? 300 : 360,
+      maxWidth: isMobile ? 480 : 580,
+      minHeight: isMobile ? 415 : 500,
+      maxHeight: isMobile ? Math.min(680, window.innerHeight - 80) : 780,
       maxShadowOpacity: isMobile ? 0.3 : 0.45,
       showCover: true,
       mobileScrollSupport: false,
