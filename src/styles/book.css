@@ -87,31 +87,159 @@ html, body {
   position: relative;
 }
 
+/* ============================================================
+   BORDES Y DECORADO EN ACUARELA DE LIBRO ILUSTRADO
+   ============================================================ */
+
+/* Sangrado orgánico y halos de acuarela en los cuatro extremos de la hoja */
+.page-watercolor-wash-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: 
+    /* Esquinas: manchas orgánicas de acuarela en tonos blush, durazno y salvia */
+    radial-gradient(circle at 0% 0%, rgba(244, 200, 190, 0.45) 0%, rgba(253, 246, 237, 0.18) 32%, transparent 65%),
+    radial-gradient(circle at 100% 0%, rgba(226, 149, 120, 0.4) 0%, rgba(253, 246, 237, 0.15) 32%, transparent 65%),
+    radial-gradient(circle at 0% 100%, rgba(157, 180, 160, 0.38) 0%, rgba(253, 246, 237, 0.15) 32%, transparent 65%),
+    radial-gradient(circle at 100% 100%, rgba(244, 200, 190, 0.45) 0%, rgba(253, 246, 237, 0.18) 32%, transparent 65%),
+    /* Sangrado de pigmento artesanal en el contorno */
+    linear-gradient(to bottom, rgba(217, 116, 102, 0.15) 0%, rgba(244, 200, 190, 0.05) 16px, transparent 32px),
+    linear-gradient(to top, rgba(217, 116, 102, 0.15) 0%, rgba(244, 200, 190, 0.05) 20px, transparent 36px),
+    linear-gradient(to right, rgba(226, 149, 120, 0.12) 0%, transparent 24px),
+    linear-gradient(to left, rgba(226, 149, 120, 0.12) 0%, transparent 24px);
+  box-shadow: 
+    inset 0 0 32px rgba(217, 116, 102, 0.16),
+    inset 0 0 12px rgba(180, 125, 105, 0.16);
+}
+
+/* Variaciones temáticas de los bordes según la página */
+.page-num-2 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(255, 225, 170, 0.45) 0%, rgba(244, 200, 190, 0.25) 30%, transparent 65%),
+    radial-gradient(circle at 100% 0%, rgba(244, 200, 190, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(244, 200, 190, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(255, 225, 170, 0.45) 0%, transparent 65%),
+    linear-gradient(to bottom, rgba(217, 116, 102, 0.14) 0%, transparent 30px);
+}
+
+.page-num-4 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(157, 180, 160, 0.42) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(180, 210, 230, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(180, 210, 230, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(157, 180, 160, 0.42) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(125, 168, 135, 0.15) 0%, transparent 30px);
+}
+
+.page-num-5 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(244, 200, 190, 0.55) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(217, 116, 102, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(217, 116, 102, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(244, 200, 190, 0.55) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(217, 116, 102, 0.18) 0%, transparent 30px);
+}
+
+.page-num-6 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(175, 200, 220, 0.4) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(215, 190, 205, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(215, 190, 205, 0.3) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(175, 200, 220, 0.4) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(150, 180, 200, 0.16) 0%, transparent 30px);
+}
+
+.page-num-7 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(210, 175, 215, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(240, 205, 160, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(240, 205, 160, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(210, 175, 215, 0.38) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(180, 150, 190, 0.16) 0%, transparent 30px);
+}
+
+.page-num-8 .page-watercolor-wash-overlay {
+  background: 
+    radial-gradient(circle at 0% 0%, rgba(245, 210, 160, 0.48) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(235, 160, 130, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 0% 100%, rgba(235, 160, 130, 0.38) 0%, transparent 60%),
+    radial-gradient(circle at 100% 100%, rgba(245, 210, 160, 0.48) 0%, transparent 60%),
+    linear-gradient(to bottom, rgba(220, 160, 110, 0.16) 0%, transparent 30px);
+}
+
+/* Marco ilustrado de libro de cuentos: doble trazo artesanal */
 .page-watercolor-border {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
   bottom: 12px;
-  border: 1.5px solid var(--color-wc-border);
-  outline: 1px dashed rgba(217, 116, 102, 0.35);
+  border: 1.8px solid rgba(201, 122, 110, 0.55);
+  outline: 1px dashed rgba(226, 149, 120, 0.45);
   outline-offset: -5px;
-  border-radius: 8px;
+  border-radius: 12px;
   pointer-events: none;
   z-index: 2;
+  box-shadow: inset 0 0 16px rgba(244, 200, 190, 0.35);
+}
+
+/* Floreos y esquinas botánicas ilustradas en acuarela */
+.wc-corner-flourish {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  pointer-events: none;
+  z-index: 3;
+  filter: drop-shadow(0 1px 2px rgba(217, 116, 102, 0.2));
+}
+
+.wc-corner-tl {
+  top: 3px;
+  left: 3px;
+}
+
+.wc-corner-tr {
+  top: 3px;
+  right: 3px;
+  transform: scaleX(-1);
+}
+
+.wc-corner-bl {
+  bottom: 3px;
+  left: 3px;
+  transform: scaleY(-1);
+}
+
+.wc-corner-br {
+  bottom: 3px;
+  right: 3px;
+  transform: scale(-1);
+}
+
+/* Guirnalda superior en acuarela */
+.wc-crest-flourish.wc-crest-top {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 3;
 }
 
 .page-inner-scroll {
   position: absolute;
-  top: 20px;
+  top: 22px;
   left: 20px;
   right: 20px;
-  bottom: 30px;
+  bottom: 32px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(217, 116, 102, 0.4) transparent;
-  z-index: 3;
+  z-index: 4;
 }
 
 .page-inner-scroll::-webkit-scrollbar {
@@ -144,6 +272,59 @@ html, body {
   font-size: 0.72rem;
   opacity: 0.7;
 }
+
+/* Esquinas doradas de la portada y contratapa */
+.cover-illustrated-corners {
+  position: absolute;
+  inset: 12px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.cover-corner {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-color: rgba(244, 200, 190, 0.65);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.cover-corner.corner-tl {
+  top: 0; left: 0;
+  border-width: 2.5px 0 0 2.5px;
+  border-top-left-radius: 6px;
+}
+
+.cover-corner.corner-tr {
+  top: 0; right: 0;
+  border-width: 2.5px 2.5px 0 0;
+  border-top-right-radius: 6px;
+}
+
+.cover-corner.corner-bl {
+  bottom: 0; left: 0;
+  border-width: 0 0 2.5px 2.5px;
+  border-bottom-left-radius: 6px;
+}
+
+.cover-corner.corner-br {
+  bottom: 0; right: 0;
+  border-width: 0 2.5px 2.5px 0;
+  border-bottom-right-radius: 6px;
+}
+
+.cover-corner::after {
+  content: '✦';
+  position: absolute;
+  font-size: 0.75rem;
+  color: #fceade;
+}
+
+.corner-tl::after { top: 2px; left: 2px; }
+.corner-tr::after { top: 2px; right: 2px; }
+.corner-bl::after { bottom: 2px; left: 2px; }
+.corner-br::after { bottom: 2px; right: 2px; }
 
 /* ============================================================
    PORTADA EN ACUARELA CÁLIDA (THEME CATS COVER)
@@ -396,11 +577,118 @@ html, body {
   color: var(--color-cat-muted);
 }
 
+/* Divisor de pincelada de acuarela */
 .watercolor-brush-divider {
-  width: 80px;
-  height: 2px;
-  margin: 6px auto 12px auto;
-  background: linear-gradient(90deg, transparent, var(--color-cat-rose), transparent);
+  width: 140px;
+  height: 4px;
+  margin: 8px auto 14px auto;
+  background: radial-gradient(ellipse at center, rgba(217, 116, 102, 0.75) 0%, rgba(244, 200, 190, 0.45) 60%, transparent 100%);
+  border-radius: 50%;
+  position: relative;
+}
+
+.watercolor-brush-divider::before,
+.watercolor-brush-divider::after {
+  content: '•';
+  position: absolute;
+  top: -9px;
+  color: var(--color-cat-rose);
+  font-size: 1.15rem;
+  opacity: 0.65;
+}
+
+.watercolor-brush-divider::before { left: 16px; }
+.watercolor-brush-divider::after { right: 16px; }
+
+/* Mancha de acuarela detrás de los títulos de libros ilustrados */
+.page-story-title,
+.chapter-title,
+.letter-main-greeting,
+.holiday-title,
+.showcase-title,
+.epilogue-title {
+  position: relative;
+  display: inline-block;
+  padding: 2px 14px;
+  z-index: 1;
+}
+
+.page-story-title::before,
+.chapter-title::before,
+.letter-main-greeting::before,
+.holiday-title::before,
+.showcase-title::before,
+.epilogue-title::before {
+  content: '';
+  position: absolute;
+  inset: 15% -8px 8% -8px;
+  background: linear-gradient(90deg, transparent 0%, rgba(244, 200, 190, 0.45) 20%, rgba(252, 213, 206, 0.6) 50%, rgba(244, 200, 190, 0.45) 80%, transparent 100%);
+  border-radius: 20px 6px 18px 8px;
+  z-index: -1;
+  filter: blur(1px);
+  transform: rotate(-0.5deg);
+}
+
+/* Letra Capitular Iluminada de Libro Ilustrado */
+.lead-text::first-letter,
+.watercolor-story-p.story-lead::first-letter,
+.epistle-paragraph:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 2.85rem;
+  line-height: 0.82;
+  padding: 6px 8px 4px 4px;
+  margin-right: 8px;
+  color: var(--color-cat-rose);
+  text-shadow: 1px 1px 0 rgba(244, 200, 190, 0.7);
+  background: radial-gradient(circle at center, rgba(244, 200, 190, 0.4) 0%, transparent 72%);
+  border-radius: 6px;
+  border-left: 2.5px solid rgba(217, 116, 102, 0.45);
+}
+
+/* Tarjetas y pergaminos ilustrados con bordes de papel artesanal */
+.letter-lead-card,
+.chapter-quote-card,
+.holiday-epistle-card,
+.epilogue-note-card,
+.master-dedication-card,
+.toc-quote-box {
+  position: relative;
+  background: rgba(255, 253, 248, 0.92) !important;
+  border: 1.5px solid rgba(226, 149, 120, 0.45) !important;
+  border-radius: 12px !important;
+  box-shadow: 
+    0 4px 16px rgba(217, 116, 102, 0.08),
+    inset 0 0 12px rgba(244, 200, 190, 0.28) !important;
+}
+
+.letter-lead-card::before,
+.chapter-quote-card::before,
+.holiday-epistle-card::before,
+.epilogue-note-card::before,
+.toc-quote-box::before {
+  content: '❦';
+  position: absolute;
+  top: 3px;
+  left: 8px;
+  font-size: 0.75rem;
+  color: var(--color-cat-rose);
+  opacity: 0.6;
+}
+
+.letter-lead-card::after,
+.chapter-quote-card::after,
+.holiday-epistle-card::after,
+.epilogue-note-card::after,
+.toc-quote-box::after {
+  content: '❦';
+  position: absolute;
+  bottom: 3px;
+  right: 8px;
+  font-size: 0.75rem;
+  color: var(--color-cat-rose);
+  opacity: 0.6;
+  transform: rotate(180deg);
 }
 
 .toc-list-watercolor {

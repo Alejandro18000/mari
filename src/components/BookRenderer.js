@@ -36,6 +36,14 @@ export class BookRenderer {
     div.innerHTML = `
       <div class="cover-watercolor-bg"></div>
       
+      <!-- Esquinas ornamentales doradas de libro ilustrado clásico -->
+      <div class="cover-illustrated-corners">
+        <div class="cover-corner corner-tl"></div>
+        <div class="cover-corner corner-tr"></div>
+        <div class="cover-corner corner-bl"></div>
+        <div class="cover-corner corner-br"></div>
+      </div>
+      
       <div class="cover-watercolor-content">
         <!-- Cuadro en acuarela de la portada -->
         <div class="cover-painting-frame clean-photo-frame" data-full-img="${asset(bookMetadata.coverImage || 'images/cats_cover.jpg')}" data-caption="Mari & Sergio: Una historia de amistad incondicional">
@@ -81,6 +89,13 @@ export class BookRenderer {
     div.setAttribute('data-density', 'hard');
     div.innerHTML = `
       <div class="cover-watercolor-bg back"></div>
+      <!-- Esquinas ornamentales doradas de libro ilustrado clásico -->
+      <div class="cover-illustrated-corners">
+        <div class="cover-corner corner-tl"></div>
+        <div class="cover-corner corner-tr"></div>
+        <div class="cover-corner corner-bl"></div>
+        <div class="cover-corner corner-br"></div>
+      </div>
       <div class="cover-watercolor-content back">
         <div class="back-cover-badge">
           <div class="back-paw-seal anim-heart-pulse">
@@ -104,9 +119,103 @@ export class BookRenderer {
     return div;
   }
 
+  renderPageBorderDecorations(data) {
+    return `
+      <!-- Sangrado orgánico y halo de acuarela en los márgenes -->
+      <div class="page-watercolor-wash-overlay"></div>
+      
+      <!-- Marco ilustrado de libro de cuentos con flores botánicas y huellitas -->
+      <div class="page-watercolor-border">
+        <!-- Esquina Superior Izquierda -->
+        <svg class="wc-corner-flourish wc-corner-tl" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" fill="rgba(244, 200, 190, 0.45)" />
+          <path d="M 6 68 C 6 26, 26 6, 68 6" stroke="#c97a6e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 12 68 C 12 32, 32 12, 68 12" stroke="rgba(217, 116, 102, 0.45)" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+          <path d="M 16 38 C 10 34, 8 24, 18 26 C 20 30, 18 36, 16 38 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 38 16 C 34 10, 24 8, 26 18 C 30 20, 36 18, 38 16 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 28 28 C 22 24, 20 18, 26 19 C 30 22, 29 27, 28 28 Z" fill="#e29578" opacity="0.8"/>
+          <circle cx="15" cy="18" r="2.8" fill="#e76f51" opacity="0.85"/>
+          <circle cx="52" cy="7" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <circle cx="7" cy="52" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <ellipse cx="23" cy="23" rx="4.5" ry="3.5" fill="#d97466" opacity="0.6" transform="rotate(-45 23 23)"/>
+          <circle cx="17" cy="19" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="21" cy="15" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="26" cy="16" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="29" cy="20" r="1.5" fill="#d97466" opacity="0.6"/>
+        </svg>
+
+        <!-- Esquina Superior Derecha -->
+        <svg class="wc-corner-flourish wc-corner-tr" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" fill="rgba(244, 200, 190, 0.45)" />
+          <path d="M 6 68 C 6 26, 26 6, 68 6" stroke="#c97a6e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 12 68 C 12 32, 32 12, 68 12" stroke="rgba(217, 116, 102, 0.45)" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+          <path d="M 16 38 C 10 34, 8 24, 18 26 C 20 30, 18 36, 16 38 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 38 16 C 34 10, 24 8, 26 18 C 30 20, 36 18, 38 16 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 28 28 C 22 24, 20 18, 26 19 C 30 22, 29 27, 28 28 Z" fill="#e29578" opacity="0.8"/>
+          <circle cx="15" cy="18" r="2.8" fill="#e76f51" opacity="0.85"/>
+          <circle cx="52" cy="7" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <circle cx="7" cy="52" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <ellipse cx="23" cy="23" rx="4.5" ry="3.5" fill="#d97466" opacity="0.6" transform="rotate(-45 23 23)"/>
+          <circle cx="17" cy="19" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="21" cy="15" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="26" cy="16" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="29" cy="20" r="1.5" fill="#d97466" opacity="0.6"/>
+        </svg>
+
+        <!-- Esquina Inferior Izquierda -->
+        <svg class="wc-corner-flourish wc-corner-bl" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" fill="rgba(244, 200, 190, 0.45)" />
+          <path d="M 6 68 C 6 26, 26 6, 68 6" stroke="#c97a6e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 12 68 C 12 32, 32 12, 68 12" stroke="rgba(217, 116, 102, 0.45)" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+          <path d="M 16 38 C 10 34, 8 24, 18 26 C 20 30, 18 36, 16 38 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 38 16 C 34 10, 24 8, 26 18 C 30 20, 36 18, 38 16 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 28 28 C 22 24, 20 18, 26 19 C 30 22, 29 27, 28 28 Z" fill="#e29578" opacity="0.8"/>
+          <circle cx="15" cy="18" r="2.8" fill="#e76f51" opacity="0.85"/>
+          <circle cx="52" cy="7" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <circle cx="7" cy="52" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <ellipse cx="23" cy="23" rx="4.5" ry="3.5" fill="#d97466" opacity="0.6" transform="rotate(-45 23 23)"/>
+          <circle cx="17" cy="19" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="21" cy="15" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="26" cy="16" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="29" cy="20" r="1.5" fill="#d97466" opacity="0.6"/>
+        </svg>
+
+        <!-- Esquina Inferior Derecha -->
+        <svg class="wc-corner-flourish wc-corner-br" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="16" fill="rgba(244, 200, 190, 0.45)" />
+          <path d="M 6 68 C 6 26, 26 6, 68 6" stroke="#c97a6e" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M 12 68 C 12 32, 32 12, 68 12" stroke="rgba(217, 116, 102, 0.45)" stroke-width="1" stroke-dasharray="2 3" fill="none"/>
+          <path d="M 16 38 C 10 34, 8 24, 18 26 C 20 30, 18 36, 16 38 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 38 16 C 34 10, 24 8, 26 18 C 30 20, 36 18, 38 16 Z" fill="#9db4a0" opacity="0.85"/>
+          <path d="M 28 28 C 22 24, 20 18, 26 19 C 30 22, 29 27, 28 28 Z" fill="#e29578" opacity="0.8"/>
+          <circle cx="15" cy="18" r="2.8" fill="#e76f51" opacity="0.85"/>
+          <circle cx="52" cy="7" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <circle cx="7" cy="52" r="2.4" fill="#f4a261" opacity="0.85"/>
+          <ellipse cx="23" cy="23" rx="4.5" ry="3.5" fill="#d97466" opacity="0.6" transform="rotate(-45 23 23)"/>
+          <circle cx="17" cy="19" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="21" cy="15" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="26" cy="16" r="1.5" fill="#d97466" opacity="0.6"/>
+          <circle cx="29" cy="20" r="1.5" fill="#d97466" opacity="0.6"/>
+        </svg>
+
+        <!-- Guirnalda Superior en Acuarela -->
+        <svg class="wc-crest-flourish wc-crest-top" viewBox="0 0 160 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 12 11 Q 50 7, 72 12 Q 76 14, 80 8 Q 84 14, 88 12 Q 110 7, 148 11" stroke="#d97466" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.65"/>
+          <ellipse cx="80" cy="9" rx="3.5" ry="2.8" fill="#d97466" opacity="0.75"/>
+          <circle cx="75.5" cy="6" r="1.3" fill="#d97466" opacity="0.75"/>
+          <circle cx="78.5" cy="4.5" r="1.3" fill="#d97466" opacity="0.75"/>
+          <circle cx="81.5" cy="4.5" r="1.3" fill="#d97466" opacity="0.75"/>
+          <circle cx="84.5" cy="6" r="1.3" fill="#d97466" opacity="0.75"/>
+          <path d="M 58 9 C 54 7, 50 3, 56 5 Z" fill="#9db4a0" opacity="0.8"/>
+          <path d="M 102 9 C 106 7, 110 3, 104 5 Z" fill="#9db4a0" opacity="0.8"/>
+        </svg>
+      </div>
+    `;
+  }
+
   createPageElement(data) {
     const page = document.createElement('div');
-    page.className = `page page-watercolor-paper page-num-${data.pageNumber}`;
+    page.className = `page page-watercolor-paper page-num-${data.pageNumber} page-type-${data.type}`;
     page.setAttribute('data-page-num', data.pageNumber);
 
     let innerContent = '';
@@ -134,7 +243,7 @@ export class BookRenderer {
     }
 
     page.innerHTML = `
-      <div class="page-watercolor-border"></div>
+      ${this.renderPageBorderDecorations(data)}
       <div class="page-inner-scroll">
         ${innerContent}
       </div>
@@ -268,8 +377,8 @@ export class BookRenderer {
           </div>
 
           <div class="letter-body-paragraphs">
-            ${data.paragraphs.map(p => `
-              <p class="watercolor-story-p">${p}</p>
+            ${data.paragraphs.map((p, idx) => `
+              <p class="watercolor-story-p ${idx === 0 ? 'story-lead' : ''}">${p}</p>
             `).join('')}
           </div>
 
@@ -284,8 +393,8 @@ export class BookRenderer {
       return `
         <div class="letter-story-container part-2">
           <div class="letter-body-paragraphs">
-            ${data.paragraphs.map(p => `
-              <p class="watercolor-story-p">${p}</p>
+            ${data.paragraphs.map((p, idx) => `
+              <p class="watercolor-story-p ${idx === 0 ? 'story-lead' : ''}">${p}</p>
             `).join('')}
           </div>
 
